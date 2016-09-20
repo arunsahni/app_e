@@ -1,0 +1,52 @@
+<div>
+    <h3 align="center">Unavailbility Form</h3>
+    <br>
+    <form name="availablityForm" novalidate>	
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <label>Start Date: </label>
+                </div>               
+                <div class="rt-inputs col-md-2">
+                    {{(eventData.allDay) ? (eventData.startDate | date:'MM-dd-yyyy') : (eventData.startDate | date:'MM-dd-yyyy h:mm a')}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <label>End Date: </label>
+                </div>               
+                <div class="rt-inputs col-md-2">
+                    {{(eventData.allDay) ? (eventData.modalEndDate | date:'MM-dd-yyyy') : (eventData.modalEndDate | date:'MM-dd-yyyy h:mm a')}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <label> Availbility: </label>
+                </div>
+                <div class="rt-inputs col-md-2">
+                    Unavailable
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <label> Reason: </label>
+                </div>
+                <div class="rt-inputs col-md-2">
+                    <input type="text" name="screenName" ng-model="unavailableData.title" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+		    <input type="submit" class="yellow_btn" value="Save" ng-click="availablityForm.$valid && saveReason(unavailableData)">
+		</div>
+                <div class="col-md-2">
+		    <input type="submit" class="yellow_btn" value="Cancel" ng-click="cancel()">
+		</div>
+            </div>
+            <br>
+   </form>
+</div>

@@ -1,0 +1,316 @@
+<!-- Starts Featured Section -->
+<div class="featured-section register-all-medium">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="profilepage-rt editprofile">
+					<div class="profiletop">
+						<div class="row">
+							<div class="col-lg-12 col-md-12">
+								<div class="col-lg-4 col-md-4 col-sm-4 centeraligndp">
+									<div class="profiledp" ng-controller="ImageController">
+									<img ng-show="image" ng-src="{{image.url}}" type="{{image.file.type}}">
+                                                                        <img ng-if="!image" ng-src="{{user.profilePhoto}}">
+                                                                        <div class="edit"><input ng-model="user.profilePhoto" type="file" accept="image/*" image="image" submit-required="true" onchange="angular.element(this).scope().imageUpload(this.files)"/></div>
+									</div>
+                                                                    <div class="divbeforebtn">
+									<a href="#/performer/viewProfile" class="yellow_btn">View Profile</a>
+									</div>
+								</div>
+								
+								<div class="col-lg-8 col-md-8 col-sm-8">
+										<div class="aboutmartin-whole">
+										<h3>Edit Your Profile</h3>
+										
+										<div class="basicinfo">
+		 <form name="editProfile" novalidate>	
+                     
+				<ul>
+
+                                    <li ng-if="user.companyId">
+						<label>Company Name : </label>
+						<div class="rt-inputs">
+							{{user.companyId.companyName}}
+						</div>
+					</li>
+					<li>
+						<label>* Screen Name : </label>
+						<div class="rt-inputs">
+							<input type="text" name="screenName" ng-model="user.displayName" required>
+							 <div ng-show="editProfile.screenName.$dirty || editProfile.$submitted" ng-messages   = "editProfile.screenName.$error">
+                             <div class="fieldmsgerror" ng-message="required">
+                              Please enter Screen Name.
+                             </div> 
+                             </div>
+							<h5><b>Note :</b> Please enter your screen name. </h5>
+						</div>
+					</li> 
+
+					<li>
+						<label>* First Name : </label>
+						<div class="rt-inputs">
+							<input type="text" name="firstName" ng-model="user.firstName" required>
+							 <div ng-show="editProfile.firstName.$dirty || editProfile.$submitted" ng-messages   =  "editProfile.firstName.$error">
+                             <div class="fieldmsgerror" ng-message="required">
+                              Please enter First Name.
+                             </div> 
+                             </div>
+							<h5><b>Note :</b> Please enter your first name. </h5>
+						</div>
+					</li>
+					<li>
+						<label> Last Name : </label>
+						<div class="rt-inputs" >
+							<input type="text" name="lastName" ng-model="user.lastName">
+							
+							<h5><b>Note :</b> Please enter your last name. </h5>
+						</div>
+					</li>
+					<li>
+						<label>* Email :  </label>
+						<div class="rt-inputs" >
+							<input type="email" name="email" ng-model="user.email" required>
+							<div ng-show="editProfile.email.$dirty || editProfile.$submitted" ng-messages=        "editProfile.email.$error">
+                             <div class="fieldmsgerror" ng-message="required">
+                                Please enter a valid email address
+                             </div>
+                               <div class="fieldmsgerror" ng-message="email">
+                                  That is not a well formed email address
+                               </div>
+                           </div>
+							<h5><b>Note :</b> Please enter a valid email address </h5>
+						</div>
+					</li>
+					
+					<li>
+						<label>* Mobile Number :  </label>
+						<div class="rt-inputs">
+							<input type="text" name="mobileNumber" ng-model="user.phoneNumber" required>
+							 <div ng-show="editProfile.mobileNumber.$dirty || editProfile.$submitted" ng-messages   =  "editProfile.mobileNumber.$error">
+                             <div class="fieldmsgerror" ng-message="required">
+                              Please enter Mobile Number.
+                             </div> 
+                             </div>
+							<h5><b>Note :</b> Please enter a valid phone number </h5>
+						</div>
+					</li>
+
+					<li ng-if="paymentTabDisplay">
+						<label>* Paypal Email :  </label>
+						<div class="rt-inputs">
+							<input type="email" name="emailPay" ng-model="user.paypalEmail" required>
+							    <div ng-show="editProfile.emailPay.$dirty || editProfile.$submitted" ng-messages=    
+							    "editProfile.emailPay.$error">
+                                                            <div class="fieldmsgerror" ng-message="required">
+                                                               Please enter a valid email address
+                                                            </div>
+                                                              <div class="fieldmsgerror" ng-message="email">
+                                                                 That is not a well formed email address
+                                                              </div>
+                                                          </div>
+							<h5><b>Note :</b> Please enter a valid Paypal Email address </h5>
+						</div>
+					</li>
+
+					<li>
+						<label>* Experience :  </label>
+						<div class="rt-inputs" >
+							<label>Year</label>
+							<input class="hlf_input" type="text" ng-model="user.experienceYear">
+							<label>Month</label>
+							<input class="hlf_input" type="text" ng-model="user.experienceMonth">
+							<h5><b>Note :</b> Please enter a valid experience </h5>
+						</div>
+					</li>
+
+					<li>
+						<label> Short Description :  </label>
+						<div class="rt-inputs" >
+							<textarea name="shortDescription" ng-model="user.description" ></textarea>
+							<h5><b>Note :</b> Please enter short description about yourself.</h5>
+						</div>
+					</li>
+
+					<li class="headingli">
+						<h4>Service Location</h4>
+					</li>
+
+					<li>
+						<label> * Country :  </label>
+						<div class="rt-inputs">
+							<select ng-model="user.country">
+								<option value="">Select Country</option>
+								<option value="Australia">Australia</option>
+							</select>
+							<h5><b>Note :</b> Please select a country you provide service in.  </h5>
+						</div>
+					</li>
+
+					<li>
+						<label> * State :  </label>
+						<div class="rt-inputs">
+							<select ng-model="user.state">
+								<option value="">Select Country</option>
+								<option value="Melbourne">Melbourne</option>
+								<option value="Sydney">Sydney</option>
+							</select>
+							<h5><b>Note :</b> Please select a country you provide service in.  </h5>
+						</div>
+					</li>
+                                        <li>
+						<label>* Serving Location :  </label>
+						<div class="rt-inputs" >
+							<input type="text" ng-model="user.address">
+							<h5><b>Note :</b> Please enter a service location. </h5>
+						</div>
+					</li>
+                                        <li>
+						<label>  Distance (Miles) :  </label>
+						<div class="rt-inputs" >
+							<input type="text" name="distance" ng-model="user.servingDistanceFromLocation">
+							<h5><b>Note :</b> Please enter a serving distance from location. </h5>
+						</div>
+					</li>
+					<li>
+						<label>* Postcode / zipcode :  </label>
+						<div class="rt-inputs" >
+							<input type="text" name="postcode" ng-model="user.zipCode" required>
+							 <div ng-show="editProfile.postcode.$dirty || editProfile.$submitted" ng-messages   =  "editProfile.postcode.$error">
+                             <div class="fieldmsgerror" ng-message="required">
+                              Please enter Postcode / zipcode.
+                             </div> 
+                             </div>
+							<h5><b>Note :</b> Please enter a valid postal code. </h5>
+						</div>
+					</li>
+
+					<li class="headingli">
+						<h4>Service Category</h4>
+					</li>
+
+					<li>
+						<label> * Category 1 :  </label>
+						<div class="rt-inputs">
+							<select ng-model="userCat.servingCategory[0]" name="category" required>
+								<option value="">Select Category 1</option>
+                                <option ng-repeat="eachCategory in categoryDataAll" value="{{ eachCategory.id }}">{{ eachCategory.categoryTitle }}</option>
+							</select>
+							<div ng-show="editProfile.category.$dirty || editProfile.$submitted" ng-messages="editProfile.category.$error">
+                             <div class="fieldmsgerror" ng-message="required">
+                              Please select  Category.
+                             </div> 
+                             </div>
+							<h5><b>Note :</b> Please select a service category.  </h5>
+						</div>
+					</li>
+
+ 					<li ng-if="userCat.servingCategory[0]">
+
+						<label>  Category 2 (optional) :  </label>
+						<div class="rt-inputs">
+							<select ng-model="userCat.servingCategory[1]">
+								<option value="">Select Category 2</option>
+								<option ng-repeat="eachCategory in categoryDataAll" value="{{ eachCategory.id }}">{{ eachCategory.categoryTitle }}</option>
+							</select>
+							<h5><b>Note :</b> Please select a service category.  </h5>
+						</div>
+					</li>
+
+					<li ng-if="userCat.servingCategory[0] && userCat.servingCategory[1]">
+						<label>  Category 3 (optional) :  </label>
+						<div class="rt-inputs">
+							<select ng-model="userCat.servingCategory[2]">
+								<option value="">Select Category 3</option>
+								<option ng-repeat="eachCategory in categoryDataAll" value="{{ eachCategory.id }}">{{ eachCategory.categoryTitle }}</option>
+							</select>
+							<h5><b>Note :</b> Please select a service category.  </h5>
+						</div>
+					</li>
+
+					<li class="headingli">
+						<h4>Settings</h4>
+					</li>
+
+					<li>
+						<label>* Price ($):  </label>
+						<div class="rt-inputs" >
+							<input type="text" ng-model="user.workPrice" name="workPrice" required>
+							<div ng-show="editProfile.workPrice.$dirty || editProfile.$submitted" ng-messages="editProfile.workPrice.$error">
+                             <div class="fieldmsgerror" ng-message="required">
+                              Please select  Price.
+                             </div> 
+                             </div>
+							<h5><b>Note :</b> Please enter you work price. </h5>
+						</div>
+					</li>
+
+					<li>
+						<label> * Chat Availability :  </label>
+						<div class="rt-inputs">
+							<span class="genderall"><input type="radio" name="chatAvail" value="1" ng-model="user.chatAvail">24 Hours</span> 
+							<span class="genderall"><input type="radio" name="chatAvail" value="0" ng-model="user.chatAvail">No Chat</span> 
+							<h5><b>Note :</b> Please set your chat availability.  </h5>
+						</div>
+					</li>
+
+					<li>
+						<label> * Pricing Term:  </label>
+						<div class="rt-inputs">
+							<span class="genderall">
+								<input type="radio" name="pricingTerm" value="Fix price" ng-model="user.pricingTerm">Fix price
+							</span> 
+							<span class="genderall">
+								<input type="radio" name="pricingTerm" value="Negotiable" ng-model="user.pricingTerm">Negotiable
+							</span> 
+							<!--span class="genderall">
+								<input type="radio" name="pricingTerm" value="Price on application" ng-model="user.pricingTerm">Price On Application
+							</span--> 
+							<h5><b>Note :</b> Please set your pricing terms.  </h5>
+						</div>
+					</li>
+					
+                                        <li>
+						<label>Special Requirement 1 (optional):  </label>
+						<div class="rt-inputs" >
+							<input type="text" ng-model="userRequ.performerRequirement[0]">
+							<h5><b>Note :</b> Please enter special requirement text. </h5>
+						</div>
+					</li>
+                                        <li ng-if="userRequ.performerRequirement[0]">
+						<label>Special Requirement 2 (optional):  </label>
+						<div class="rt-inputs" >
+							<input type="text" ng-model="userRequ.performerRequirement[1]">
+							<h5><b>Note :</b> Please enter special requirement text. </h5>
+						</div>
+					</li>
+                                        <li ng-if="userRequ.performerRequirement[0] && userRequ.performerRequirement[1]">
+						<label>Special Requirement 3 (optional):  </label>
+						<div class="rt-inputs" >
+							<input type="text" ng-model="userRequ.performerRequirement[2]">
+							<h5><b>Note :</b> Please enter special requirement text. </h5>
+						</div>
+					</li>
+					<li>
+						<label> &nbsp;  </label>
+						<div class="rt-inputs">
+							<input type="submit" class="yellow_btn" value="Save" ng-click="editProfile.$valid && editProfileData()">
+                                                        <span us-spinner="{radius:30, width:8, length: 16, scale:0.50}"></span>
+						</div>
+					</li>
+                                        <li>
+                                            <div flash-message="5000" ></div>
+                                        </li>
+				</ul>
+			</div>
+			</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Ends Featured Section -->

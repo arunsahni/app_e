@@ -1,0 +1,36 @@
+<div class="row">            <!--  row nd frst one -->
+
+           <div class="col-md-12">       <!-- col-md-12 -->
+             <!-- general form elements disabled -->
+             <div class="box box-warning">              <!-- box-warning -->
+               <div class="box-header with-border">
+                 <h3 class="box-title">General Elements</h3>
+               </div><!-- /.box-header -->
+               <div class="box-body">
+                 <form role="form">
+                   <!-- text input --> 
+                   <div class="form-group">
+                     <label>Application Fee</label>
+                     <input type="text" class="form-control" placeholder="Enter Application Fee ..." ng-model="transactionDetails.applicationFee">
+                   </div>
+                   <div class="form-group">
+                     <label>Amount</label>
+                     <input type="text" class="form-control" placeholder="Enter the amount.." ng-model="transactionDetails.amount">
+                   </div>
+                   <div class="form-group">
+                     <label>Payment Status</label>
+                     <input type="text" class="form-control" placeholder="Enter the status.." ng-model="transactionDetails.paymentStatus">
+                   </div>
+                   <div class="form-group">
+                     <label>Payment Type</label>
+                     <input type="text" class="form-control" placeholder="Enter the payment type.." ng-model="transactionDetails.paymentType">
+                   </div>
+
+                   <div class="box-footer">
+                   <button type="submit" class="btn btn-primary" ng-click="update(payment.id)">Submit</button>
+                 </div>
+                 </form>
+               </div><!-- /.box-body -->
+             </div><!-- /.box -->
+           </div><!--/.col (right) -->
+ </div>   <!-- /.row -->

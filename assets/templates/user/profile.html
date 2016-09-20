@@ -1,0 +1,26 @@
+<div class="featured-section register-all">
+  <div class="container">
+        <div class="col-lg-6" >
+          <p>First Name: {{user[0].firstName}}</p>
+          <p>Last Name:  {{user[0].lastName}}</p>
+          <p>Email:      {{user[0].email}}</p>
+          <button class="btn btnprimary" ng-click="edit()"> Edit</button>
+        </div>
+
+        <div class="col-lg-6" >
+        <h3>Your posted job </h3>
+      <tr ng-repeat="job in jobData">
+         <td>{{job.jobTitel}}</td>
+         <td>{{job.jobCategory.status}}</td>
+         <td>{{job.jobStartDateTime}}</td>
+         <td>{{job.jobEndDateTime}}</td>
+         <td>{{job.jobBudget}}</td>
+
+         <td><button class="btn btn-danger" ng-click="remove(contact._id)">Remove</button></td>
+         <td><button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button></td>
+			
+	</tr>
+        </div>
+
+    </div>
+<div>

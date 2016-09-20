@@ -1,0 +1,54 @@
+<!-- Starts Featured Section -->
+<div class="featured-section register-all-medium">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-8 col-sm-8">
+				<div class="bdayprty-whole">
+					<div class="bdayprty-whole-upper" style="width:80%!important;">
+                                                
+						<h3>{{negoData.jobId.jobTitle}}</h3>
+						<p>{{negoData.jobId.jobDescription}}</p>
+						<ul>
+                                                        <li>
+							 	<label>Date & Time (Start) :</label>  <span>{{negoData.jobId.jobStartDateTime | date: 'MM-dd-yyyy h:mm a'}}</span>
+							</li>
+
+							<li>
+							 	<label>Date & Time (End) :</label>  <span>{{negoData.jobId.jobStartEndTime | date: 'MM-dd-yyyy h:mm a'}}</span>
+							</li>
+							<li>
+							 	<label>Budget :</label>  <span>{{negoData.jobId.jobBudget | currency:"$"}}</span>
+							</li>
+							<li>
+                                                            <label>Agreed Amount :</label>  <div class="negoAgree"><span>$<input type="text" ng-model="agreedPrice"/><a ng-show="showupdate" href="javascript:void(0)" ng-click="updateAmount()" class="inprogress" style="color:#fff!important;">Agree</a></span></div>
+							</li>
+						</ul>
+                                                
+					</div>
+                                        
+				</div>
+                            
+                            <div id="ChatInit" ng-if="chatbox" ng-controller="ChatInit" class="ng-scope">
+                                
+                                </div>
+			</div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+				<div class="proposl-img proposl-img-rt">
+						<h4>{{negoData.hostId.firstName}} {{negoData.hostId.lastName}}</h4>
+									<img ng-src="{{negoData.hostId.profilePhoto || images/frontend/usericon.jpg}}">
+									<div class="ratingsss">
+                                                                            <img ng-if="negoData.hostId.grossRating > 0" src="images/frontend/starr.png"> 
+                                                                            <img ng-if="negoData.hostId.grossRating > 1" src="images/frontend/starr.png"> 
+                                                                            <img ng-if="negoData.hostId.grossRating > 2" src="images/frontend/starr.png">
+                                                                            <img ng-if="negoData.hostId.grossRating > 3" src="images/frontend/starr.png">
+                                                                            <img ng-if="negoData.hostId.grossRating > 4" src="images/frontend/starr.png">
+									</div>
+                                </div>
+                               
+			</div>
+		
+		</div>
+                
+	</div>
+</div>
+<!-- Ends Featured Section -->

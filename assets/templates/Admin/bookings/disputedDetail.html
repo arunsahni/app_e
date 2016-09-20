@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Disputed Booking Details</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <div>
+                  <label>Job Title:</label>
+                  <span>{{bookingDetails.jobId.jobTitle}}</span>
+                </div>
+                <div>
+                  <label>Job Performer:</label>
+                  <span ng-if="bookingDetails.performerId.companyName == null">{{bookingDetails.performerId.firstName +" "+ booking.performerId.lastName}}</span>
+                  <span ng-if="bookingDetails.performerId.companyName != null">{{bookingDetails.performerId.companyName}}</span>
+                </div>
+                <div>
+                  <label>Job Host:</label>
+                  <span>{{bookingDetails.hostId.firstName}}</span>
+                </div>
+                <!-- <div>
+                  <label>Job Budget:</label>
+                  <span>{{}}</span>
+                </div> -->
+                <div>
+                  <label>Agreed Budget:</label>
+                  <span>{{bookingDetails.agreedBudget}}</span>
+                </div>
+                <div>
+                  <label>Payment Status:</label>
+                  <span>{{bookingDetails.paymentStatus}}</span>
+                </div>
+                <div>
+                  <label>Performer Requirement Agreed:</label>
+                  <span>{{bookingDetails.performerRequirmentAgreed}}</span>
+                </div>
+                <div>
+                <button type="button" ng-click="settle='true'" class="btn btn-primary">Settle Dispute</button>
+                </div>
+                <div ng-show="settle=='true'">
+                   <label for="paymentTo">Release Payment To: </label><br>
+                   <select name="singleSelect" ng-model="bookingDetails.disputePaymentTo">
+                     <option value="">--Please Select--</option>
+                     <option value="Customer">Customer</option>
+                     <option value="Performer">Performer</option>
+                   </select>
+                <br />
+
+                 <a href="#/disputed">
+                 <button class="btn btn-primary">Back</button>
+                </a>
+                <a href>
+                <button type="submit"class="btn btn-primary" ng-click="Settlement(bookingDetails.disputePaymentTo,bookingDetails.id)">Release Payment</button>
+               </a>
+              </div>
+               <div>
+                <h3> Message Thread</h3>
+                <textarea ng-model="jobMessages.message" placeholder="Add a comment ..." rows = "4" cols = "50"></textarea>
+                <button type="submit" ng-click="saveComment(jobMessages)">Submit</button>
+               </div>
+                <h4>Older Messages</h4>
+                  <div ng-if="jobMessages.length > 0">
+                     <div ng-repeat ="message in jobMessages">
+                       <label>{{message.userId.firstName}} {{message.userId.lastName}} :</label><br />
+                       <p>{{message.message}}</p>
+                     <hr>
+                     </div>
+            </div><!-- /.box-body -->
+             <div class="box-footer clearfix">
+
+            </div> <!--footer -->
+        </div><!-- /.box -->
+    </div> <!--col xs-12 -->
+</div> <!--roww -->

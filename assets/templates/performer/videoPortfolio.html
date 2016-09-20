@@ -1,0 +1,39 @@
+<style>.dsc-inputs textarea {background: #fff;border: 1px solid #ccc;height: 70px;padding: 10px;resize: none;width: 100%;margin: 10px 0;}
+    .close{ font-size: 28px;margin: -8px 0 0;}
+    .nav-tabs{margin-bottom:2%}
+    .uploadPortfolio{float: right;margin-bottom: 2%;margin-right: 12px;}
+    .portfolio-data img{height:150px; width:262px;}</style>
+<div class="featured-section register-all-medium">
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li ><a data-toggle="tab" href="#/performer/portfolio">Photos</a></li>
+            <li class="active"><a data-toggle="tab" href="#/performer/videoportfolio">Video</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <div class="row">
+                    <a class="yellow_btn uploadPortfolio" href ng-click='uploadVideo()'>Upload Video/s</a>
+                    <input id='upload' class="yellow_btn uploadPortfolio" type="file" name="" ng-disabled="false" onchange="angular.element(this).scope().portfolioVideoUpload(this.files)" multiple accept="video/*" style='display:none' />
+                </div>
+                <div class="row portfolio-data">
+                    <span us-spinner="{radius:30, width:8, length: 16, scale:0.50}"></span>
+                    <div class="col-md-3 portfolio-item"  ng-repeat="video in portfolioVideo.data">                        
+                        <button type="button" class="close" ng-click='deleteVideo(video.id,$event)'>×</button>
+                   
+                            <video class="img-responsive"  alt="" controls>
+                                 <source src='{{video.filePath}}' type="video/mp4">
+                            </video>
+                        <div class="dsc-inputs">
+                            <textarea ng-model="img.description"  style="" placeholder="Short video Description" ng-blur="onBlur($event,img.id)"></textarea>
+                        </div>
+                        <!--                        <div class="dsc-inputs">
+                                                  Short Photo Description
+                                                </div>-->
+                    </div>
+                    <div class="nophtovideofound" ng-hide="portfolioVideo.data.length">No Video Uploaded Yet.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

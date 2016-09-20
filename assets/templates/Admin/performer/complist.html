@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Performers Listing</h3>
+                <div class="box-tools">
+                    <div class="input-group" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Search" ng-model="text">
+                        <div class="input-group-btn">
+                            <button class="btn btn-sm btn-default" type="submit" ng-click="search(text)"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tr>
+                        <th>
+                            <a href="javascript:void(0);" ng-click="sort('firstName')">
+                                <span class ="fa fa-caret-down" ng-show="sortDir =='desc' &&sortBy !='id'"></span>
+                                <span class ="fa fa-caret-up" ng-show = "sortDir =='asc' &&sortBy !='id'"></span>
+                                First Name
+                            </a>
+                        </th>
+                        <th> Last Name </th>
+                        <th>
+                            <a href="javascript:void(0);" ng-click="sort('email')">
+                                <span class ="fa fa-caret-down" ng-show="sortDir =='desc' && sortBy !='id'"></span>
+                                <span class ="fa fa-caret-up" ng-show = "sortDir =='asc' && sortBy !='id'"></span>
+                                Email
+                            </a>
+                        </th>
+                            <th> Phone Number</th>
+                            <th> Paypal Email</th>
+                        <th>Status</th>
+                        <th><a href="javascript:void(0);" ng-click="sort('role')">
+                            <span class ="fa fa-caret-down" ng-show = "sortDir =='desc' && sortBy !='id'"></span>
+                            <span class ="fa fa-caret-up" ng-show = "sortDir =='asc' && sortBy !='id'"></span>
+                            Role
+                        </a></th>
+                         <th>
+                            <a href="javascript:void(0);">
+                                Action
+                            </a>
+                        </th>
+                    </tr>
+                    <tr ng-repeat="user in userData">
+
+                        <td>{{user.firstName}}</td>
+                        <td>{{user.lastName}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.phoneNumber}}</td>
+                        <td>{{user.paypalEmail}}</td>
+                        <td>{{user.status}}</td>
+                        <td>{{user.role}}</td>
+                        <td>
+                          <button class="btn btn-success" ng-show="user.status =='deactive'" ng-click="ChangeStatus(user.id,user.status)">Activate</button>
+                          <button class="btn btn-danger" ng-show="user.status =='active'" ng-click="ChangeStatus(user.id,user.status)">Deactivate</button>
+                            <!-- <a href="javascript:void(0);">
+                            <i title="Edit" class="fa fa-fw fa-edit" ng-click="edit(user.id)"></i> -->
+                            <a href="javascript:void(0);">
+                            <i title="Delete" class="fa fa-fw fa-remove" ng-click="remove(user.id)"></i>
+                          </a>
+                        </td>
+                    </tr>
+
+                </table>
+            </div><!-- /.box-body -->
+            <div class="box-footer clearfix">
+                <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" items-per-page="itemsPerPage" ng-change="pageChanged()"></uib-pagination>
+                <!-- <ul class="pagination pagination-sm no-margin pull-right">
+                    <li>Page: {{bigCurrentPage}} / {{numPages}}</li>
+                </ul> -->
+            </div>
+        </div><!-- /.box -->
+    </div>
+</div>

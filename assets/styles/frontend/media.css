@@ -1,0 +1,223 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+@media all and ( max-width: 1200px) {
+.navbar-default.menus li a { padding: 0 25px; }
+.hire-chat { width: 100% }
+.location-whole { left: 308px; }
+.filterbyprice ul li select, .profile-jobinfo ul li textarea { width: 61%; }
+.rt-inputs { width: 66%; }
+.paymentto .perfrmr-name  , .profile-jobinfo ul li input[type="text"], .profile-jobinfo ul li input[type="password"], .profile-jobinfo ul li input[type="email"]{ width: 61%; }
+.dropdown-top select{ width:63%;}
+.profile-jobinfo ul li label{ text-align:left; width:100% !important;}
+.suggestedprfrms li{ margin-right:14px;}
+}
+
+@media all and ( max-width: 1024px) {
+.logo a { background-size: 70%; height: 90px; }
+.navbar-default.menus li a { padding: 0 16px; font-size: 14px; }
+.searchtop-whole input[type="text"], .searchtop-whole select { width: 31%; }
+.searchtop-whole input[type="text"], .searchtop-whole select { width: 28%; }
+.searchtop-whole { padding: 28px 0; }
+.searchicon { top: 41px; }
+.featuredsctn h3 { width: 70%; }
+.profile-jobinfo.filterbyprice ul li select, .profile-jobinfo.filterbyprice ul li textarea , .paymentto .perfrmr-name, .profile-jobinfo ul li input[type="text"], .profile-jobinfo ul li input[type="password"], .profile-jobinfo ul li input[type="email"] { width: 100%; }
+.profile-jobinfo ul li .yellowbtn { margin: 0; }
+.homepage .container{ width:100%; padding:0 12px;}
+.homepage .carousel{ width:100%}
+.homepage .navbar-default.menus li a{ padding:13px 16px;}
+.stick-lt + .menus {
+    margin: 56px 0 0;
+}
+}
+
+@media all and ( max-width: 990px) {
+.featuredsctn { height: 400px }
+.featuredsctn { height: 200px; }
+.location-whole { left: 236px; }
+.filterbyprice ul li label { width: 78px; }
+.filterbyprice ul li select { width: 55%; }
+a.chat { width: 45%; }
+a.hire { width: 45%; margin-right: 10px; }
+.rt-inputs input { width: 100%; }
+.rt-inputs { width: 100%; }
+.basicinfo label { text-align: left; width: 100%; margin-bottom: 5px; }
+.paymentto .perfrmr-name { margin: 20px 0; padding: 0; width: 100%; }
+.dropdown-top select{ width:100%;}
+.suggestedprfrms li{ width:29%;}
+
+}
+
+@media all and ( max-width: 767px) {
+.loginreg span { display: inline-block; margin: 5px 7px; }
+.logo { float: none; margin: 10px auto; padding: 0; text-align: center; }
+.searchtop-whole { padding: 2px 0; }
+.searchtop-whole input[type="text"], .searchtop-whole select { width: 100%; margin-bottom: 12px; }
+.carousel-inner .item img { height: 775px; }
+.homepage .carousel-inner .item img {
+    height: 370px;
+}
+.carousel-caption { bottom: -14%; top: auto; }
+.searchicon { top: 16px; }
+.menus .container .menusall { left: 0; position: absolute; z-index: 99; top: 75px; width: 100%; background: none; }
+.navbar-collapse { background: #fff; z-index: 999 }
+.navbar-default.menus li .dropdown-menu { left: 0px; width: 100% }
+.navbar-default.menus li a { border-right: none; border-bottom: 1px solid #ddd; text-align: center; }
+.navbar-default.menus li a { font-size: 14px; margin: 0; padding: 15px 16px; }
+.homepage .featuredsctn { height: 200px }
+.carousel-caption-cont { background-size: 85%; }
+.logo a { background-size: 100%; }
+.location-whole { left: 0; top: 137px; }
+.register-all { padding: 340px 0 0; }
+.profiletop { margin: 23px 0 0; }
+.editprofile .profiledp { width: 50%; }
+.editprofile .profiledp-info { margin: 20px 0 70px; }
+.bdayprofile { width: 90%; }
+.bx-wrapper .bx-prev { left: 20px !important; }
+.bx-wrapper .bx-next { right: 20px !important }
+.profile-jobinfo.filterbyprice ul li select, .profile-jobinfo.filterbyprice ul li textarea { width: 100%; }
+.paymentto { margin-bottom: 30px; }
+.paymentto .perfrmr-name { margin: 20px 0; padding: 0 20px; width: 74%; }
+.register-all.bookingeng { padding: 245px 0 0; }
+.prfilepg{ clear:both;}
+#colorbox, #cboxOverlay, #cboxWrapper{ overflow:visible; width:100% !important}
+#cboxLoadedContent {
+    overflow: auto;
+    width: auto !important; height:auto !important;max-width:100% !important
+}
+.cboxPhoto{ height:auto !important; width:auto !important ; max-width:100% !important}
+#cboxContent{ height: auto !important}
+.menus .container .menusall{ border:none;}
+.homepage .carousel{ top:290px;}
+.homepage .featured-section {
+    padding: 150px 0 20px;
+}
+.homepage .featured-section.register-all {
+    padding: 360px 0 0;
+}
+.plan-prticular{ width:65%; float:none; margin:23px auto ;}
+}
+
+@media all and ( max-width: 600px) {
+.featured-section h2, .party_performed h2 { font-size: 28px; }
+.top-links .col-xs-3 { width: 40% }
+.top-links .col-xs-5 { width: 60%; float: right; text-align: right }
+.socialicons { text-align: right }
+.col-xs-4 { width: 100%; margin: 20px auto 0; text-align: center; }
+.loginreg { text-align: center; }
+.featuredsctn-hover p { margin: 35px 0 0; }
+.carousel-caption-cont { background-size: 74%; }
+.carousel-caption-cont h3 { font-size: 20px; }
+.carousel-caption-cont p { font-size: 14px; margin: 10px 0 0 15px; max-width: 59%; }
+.menus .container .menusall { top: 120px; }
+.carousel-inner .item img { height: 612px; }
+.homepage .carousel-inner .item img { height: 220px; }
+.carousel-caption {
+    bottom: -23%;
+}
+.homepage  .carousel-caption {
+    bottom: 11%;
+}
+.login-popup-form { width: 98%; }
+.signupwid img, .signupwid { clear: both; float: none; margin: 10px auto; text-align: center; }
+.or-line { margin-bottom: 24px; }
+.register-all { padding: 380px 0 0; }
+.register-box { width: 98% }
+.prtcular-item-rt { width: 100%; margin: 12px 0 0; }
+.reviewsall-whole .prtcular-item-rt { margin: 0px 0 0; }
+.perfrmr-name { width: 54%; }
+.perfrmr-quote, .chat-div, .bdayprty-whole-upper { width: 100%; margin: 12px 0 0; }
+.filterabovetble-lt, .filterabovetble-rt { width: 100%; float: left; margin-top: 12px; }
+.homepage .carousel {
+    top: 345px; height:450px;
+}
+.homepage .carousel-indicators {
+    bottom: 50%;
+}
+.homepage .featured-section.register-all {
+    padding: 420px 0 0;
+}
+.box-one, .box-two, .box-three {
+    margin: 82px 0 20px;
+}
+}
+
+
+@media all and ( max-width: 500px) {
+.featured-section h2, .party_performed h2 { font-size: 24px; }
+.carousel-caption-cont { background-size: 60%; }
+.carousel-caption-cont { padding: 20px; }
+.carousel-caption-cont p { font-size: 13px; max-width: 50%; }
+.featured-section .col-xs-6 { width: 100% }
+.recentlyorgactivity-whole h3 { float: left; width: 100%; }
+.reviewsall-whole .prtcular-item-img { width: 18%; }
+.reviewsall-whole .prtcular-item-rt { width: 100%; margin: 12px 0 0 0 }
+.profiledp-info { margin: 12px 0 0; width: 100%; }
+.reviewslink li { float: left; margin: 10px 0 0; }
+.location-whole { max-width: 100%; overflow-x: auto; padding: 14px 5px; }
+.filterabovetble-lt select, .creditcrddet li label, .creditcarddet-rt { width: 100% }
+.creditcrddet li.sendbtns { margin: 0; }
+.paymentto .perfrmr-name { padding: 0; width: 100%; }
+.suggestedprfrms li {
+    width: 45%;
+}
+.creditcrddet li label{ text-align:left;}
+.homepage .featuredsctn{ height:230px;}
+.homepage .carousel-caption {
+    bottom: 0;
+}
+.homepage .searchtop-whole select {
+    width: 100%;
+}
+.homepage .carousel {
+    height: 485px;
+    top: 390px;
+}
+.homepage .carousel-indicators {
+    bottom: 55%;
+}
+.homepage .featured-section.register-all {
+    padding: 500px 0 0;
+}
+.plan-prticular{ width:90%; float:none; margin:23px auto ;}
+.linkbtnlast .yellow_btn{ font-size:14px;}
+.registerformnew .yellowbtn{ font-size:14px;}
+.box-one, .box-two, .box-three {
+    margin: 95px 0 20px;
+}
+.hire-chat blockquote {
+    float: none;
+    margin: 15px auto;
+    text-align: center;
+}
+.hire-chat img {
+    float: none;
+}
+}
+
+@media all and ( max-width: 400px) {
+.top-links .col-xs-3, .top-links .col-xs-5 { width: 100%; text-align: left; margin-bottom: 10px; }
+.socialicons { text-align: left }
+.menus .container .menusall { top: 147px; }
+.carousel-caption-cont { background-size: 45%; }
+.carousel-caption-cont p { max-width: 37%; margin-top: 0; }
+.navbar-toggle { right: -11px; }
+.carousel-caption { bottom: -30%; }
+#advertisement-control { display: none }
+.register-all { padding: 420px 0 0; }
+a.hire, a.chat { width: 100%; margin-bottom: 6px; }
+.location-tab-prtclr li label { width: 86%; }
+.editprofile .profiledp, .profile-jobinfo.filterbyprice ul li label { width: 100%; }
+.profile-jobinfo.filterbyprice ul li select, .profile-jobinfo.filterbyprice ul li textarea { width: 100%; }
+.filterabovetble-rt input[type="text"] { width: 71% }
+.bookingeng-toptitle { padding: 20px 0; font-size: 20px; }
+.homepage .carousel {
+    height: 500px;
+    top: 420px;
+}
+.linkbtnlast .yellow_btn {
+    font-size: 12px;    padding: 13px 9px;
+}
+
+}

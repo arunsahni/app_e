@@ -1,0 +1,32 @@
+<alert class="alert" ng-repeat="error in errors" type="danger">{{error.err}}</alert>
+<form name="loginForm" class="form-signin" novalidate>
+  <div class="control-group">
+   <h3 align="center">Administrator Login</h3>
+   <label>Email</label>
+   <input type="email" class="form-control" placeholder="email" name="email" ng-model="user.email" required>
+    <div ng-show="loginForm.email.$dirty" ng-messages="loginForm.email.$error">
+      <div ng-message="required">
+        Please enter a valid email address
+      </div>
+      <div ng-message="email">
+        That is not a well formed email address.
+      </div>
+    </div>
+  </div>
+
+  <div class="control-group">
+     <label>Password</label>
+    <input type="password" class="form-control" placeholder="password" name="password" ng-model="user.password" required>
+    <div ng-show="loginForm.password.$dirty" ng-messages="loginForm.password.$error">
+      <div ng-message="required">
+       Please provide a password
+      </div>
+    </div>
+  </div>
+
+  <label class="checkbox-inline">
+    <input type="checkbox" id="keeplogin" value="keeplogin">Keep me sign in
+  </label>
+  <input type="submit" class="btn btn-lg btn-primary btn-block" ng-click="login()" value="Login" />
+  <a href="#/forgotPassword">Forgot your password?</a>
+</form>

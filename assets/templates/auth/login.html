@@ -1,0 +1,52 @@
+<div class="featured-section register-all-less">
+  <div class="container">
+    <div class="register-box">
+      <div class="modal-body"> 
+        <div class="login-popup-form">
+            <uib-alert ng-repeat="alert in alerts"  type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+
+          <alert class="alert" ng-repeat="error in errors" type="danger">{{message}}</alert>
+          <form name="loginForm" class="form-signin" novalidate>
+
+            <input type="email" placeholder="Email" name="email" ng-model="user.email" required>
+            <div ng-show="loginForm.email.$dirty || loginForm.$submitted" ng-messages="loginForm.email.$error">
+              <div class="fieldmsgerror" ng-message="required">
+                Please enter a valid email address
+              </div>
+              <div class="fieldmsgerror" ng-message="email">
+                That is not a well formed email address.
+              </div>
+            </div>
+
+            <input type="password" placeholder="Password" name="password" ng-model="user.password" required>
+            <div ng-show="loginForm.password.$dirty || loginForm.$submitted" ng-messages="loginForm.password.$error">
+              <div class="fieldmsgerror" ng-message="required">
+               Please provide a password
+              </div>
+            </div>
+
+            <a class="forg-paswrd" href="#/forgotPassword">Forgot Your Password?</a>
+            <input type="submit" class="login-submit" value="Submit" ng-disabled="!canMoveForward" ng-click="loginForm.$valid && login()">
+            <span us-spinner="{radius:30, width:8, length: 16, scale:0.50}"></span>
+          </form>
+          <div class="clear"></div>
+        </div>
+        
+        <div class="btm-login-popup">
+        
+          <!--<div class="or-line">
+            <div class="or">OR</div>
+          </div>
+          
+          <div class="signupwid">
+            <a href="#"><img class="fb-signupwid" src="images/frontend/signupwidfb.png"></a>
+            <a href="#"><img class="ln-signupwid" src="images/frontend/signupwidlinkedin.png"></a>
+          </div>-->
+          <div class="clear"></div>
+        </div>
+      </div>
+      <h3 class="register-title">Login</h3>
+
+    </div>
+  </div>
+</div>

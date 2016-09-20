@@ -1,0 +1,118 @@
+<div class="featured-section register-all manageprofilewhle">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-8 col-sm-8">
+				<div class="profilepage-rt">
+					<div class="profiletop">
+						<div class="row">
+							<div class="col-lg-7 col-md-8">
+								<div class="profiledp new_change">
+								<img  ng-src="{{performerData.profilePhoto}}" class="img_set1">
+									
+								</div>
+								
+								<div class="profiledp-info">
+									<h3>{{performerData.firstName}}</h3>
+									<h4> {{performerData.displayName}} </h4>
+									<p class="location">{{performerData.address}}</p>
+									<p class="memebershp">Membership: {{performerData.createdAt | date:'MM-dd-yyyy'}}</p>
+									<p ng-if="performerData.workPrice" class="bloggg">Price  : {{performerData.workPrice | currency:"$"}} ({{performerData.pricingTerm}})</p>
+									<p class="ratinggg" ng-if="performerData.grossRating > 0"> <span>Rating :{{performerData.grossRating}}</span> 
+                                                                            <img ng-if="performerData.grossRating > 0" src="images/frontend/starr.png"> 
+                                                                            <img ng-if="performerData.grossRating > 1" src="images/frontend/starr.png"> 
+                                                                            <img ng-if="performerData.grossRating > 2" src="images/frontend/starr.png">
+                                                                            <img ng-if="performerData.grossRating > 3" src="images/frontend/starr.png">
+                                                                            <img ng-if="performerData.grossRating > 4" src="images/frontend/starr.png">
+                                                                        </p>
+								</div>
+							</div>
+							
+							<div class="col-lg-5 col-md-4 btnsinglee">
+							<a href="#/performer/editProfile" class="yellow_btn btn_set1">Edit Profile</a>
+                                                                
+                                                        	<div class="hire-chat">
+                                                                        <blockquote ng-if="performerData.feature_guarantee"> <img src="images/frontend/advncedserch.png"> </blockquote>
+								</div>
+							</div>
+						</div>
+						
+		
+				<div class="row" style="margin-bottom: 15px;">
+					<div class="col-lg-12">
+					    <div ng-if="performerData.description" class="aboutmartin-whole aboutmartin_prof_whole">
+							<h3>About {{performerData.firstName}}</h3>
+							<span>{{performerData.description}}</span>
+							
+						</div>
+					</div>
+				</div>
+							
+				<div class="row" ng-if="portFolioData.length > 0">
+					<div class="col-lg-12">
+						<div class="performerslider">
+							<h3>{{performerData.firstName}}'s Uploads</h3>
+							<div class="suggestedprfrms">
+								<ul>
+									<li ng-repeat="eachPortFolioData in portFolioData">
+									    <a ng-if="eachPortFolioData.filePath" class="group4"  href="{{eachPortFolioData.filePath}}" title="{{eachPortFolioData.description}}"> 
+										<img ng-if="eachPortFolioData.type=='image'" src="{{eachPortFolioData.filePath}}">
+									    </a>
+									</li>
+								</ul>
+                                            <!--li><a class='group4 youtube' href="http://www.youtube.com/embed/VOJyrQa_WR4?rel=0&amp;wmode=transparent"  title="On the Ohoopee as an adult"><img src="/images/frontend/performer4.jpg"></a></li-->
+							</div>
+						</div>
+					</div>
+				</div>
+							
+				<div class="row">
+					<div class="col-lg-12" ng-if="reviews.length > 0">
+						<div class="recentlyorgactivity-whole reviewsall-whole ">
+							<h3><b>Reviews</b>  <span>Received  <font>{{reviews.length}}</font></span>
+							<span>Rating
+							
+							<img ng-if="performerData.grossRating > 0" src="images/frontend/starr.png">
+							<img ng-if="performerData.grossRating > 1" src="images/frontend/starr.png">
+							<img ng-if="performerData.grossRating > 2" src="images/frontend/starr.png">
+							<img ng-if="performerData.grossRating > 3" src="images/frontend/starr.png">
+							<img ng-if="performerData.grossRating > 4" src="images/frontend/starr.png">
+							</span></h3>
+							<div class="prtcular-item" ng-repeat="review in reviews">
+								<div class="prtcular-item-img">
+									<img ng-src="{{review.reviewerId.profilePhoto}}">
+								</div>
+								<div class="prtcular-item-rt">
+								    <h4>{{review.reviewerId.firstName}} {{review.reviewerId.lastName}}</h4>
+								    <p>{{review.reviewMessage}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			</div>
+			
+			<span us-spinner="{radius:30, width:8, length: 16, scale:0.50}"></span>
+		</div>
+	</div>
+</div>
+<!-- Ends Featured Section -->
+<script>
+     $(document).ready(function(){
+            setTimeout(function(){
+                //Examples of how to assign the Colorbox event to elements
+                $(".group4").colorbox({
+                        rel:'group4', 
+                        slideshow:false,
+                        innerWidth:640, innerHeight:390
+                });
+                $(".ajax").colorbox();
+                $(".youtube").colorbox({iframe:true, innerWidth:640, innerHeight:390});
+                $(".vimeo").colorbox({iframe:true, innerWidth:500, innerHeight:409});
+                $(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
+            },1000)
+
+        });
+    
+</script>

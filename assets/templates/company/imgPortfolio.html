@@ -1,0 +1,45 @@
+<style>.dsc-inputs textarea {background: #fff;border: 1px solid #ccc;height: 70px;padding: 10px;resize: none;width: 100%;margin: 10px 0;}
+    .close{ font-size: 28px;margin: -8px 0 0;}
+    .nav-tabs{margin-bottom:2%}
+    .uploadPortfolio{float: right;margin-bottom: 2%;margin-right: 12px;}
+    .portfolio-data img{height:150px; width:262px;}</style>
+<div class="featured-section register-all-medium">
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#/company/portfolio">Photos</a></li>
+             <li ><a data-toggle="tab" href="#/company/videoPortfolio">Video</a></li>
+        </ul>
+
+        <div class="tab-content slct-shw-srt">
+            <div id="home" class="tab-pane fade in active">
+                <div class="row">
+                <ul> 
+                    <li>
+                         <span> <em>*</em>Select Performer : </span>
+                            <select ng-model="performer.id">
+                            <option value="" selected="selected" ng-click="clear()">Select performer</option>
+                            <option value="performerd.id" ng-click="getImage(performer.id,performer.firstName)" ng-repeat="performer in performerData">{{performer.firstName}}</option>
+                            </select>
+                    </li>
+                    <li ng-show="performerd.id">
+                    <a class="yellow_btn uploadPortfolio" href ng-click='uploadImg()'>Upload Image/s</a>
+                    <input id='upload' class="yellow_btn uploadPortfolio" type="file" name="" ng-disabled="false" onchange="angular.element(this).scope().portfolioImageUpload(this.files)" multiple accept="image/*" style='display:none' />
+                    </li>
+                </ul>
+                </div>
+                <div class="row portfolio-data">
+                    <span us-spinner="{radius:30, width:8, length: 16, scale:0.50}"></span>
+                    <div class="col-md-3 portfolio-item"  ng-repeat="img in portfolioImg.data">                        
+                        <button type="button" class="close" ng-click='deleteImg(img.id,$event)'>×</button>
+                            <img class="img-responsive" ng-src="{{img.filePath}}" alt="" > 
+                        <div class="dsc-inputs">
+                            <textarea ng-model="img.description"  style="" placeholder="Short Photo Description" ng-blur="onBlur($event,img.id)"></textarea>
+                        </div>
+                    </div>
+                    <div class="nophtovideofound" ng-hide="portfolioImg.data.length || !performerd.id">No Image Uploaded Yet.</div>
+                     <div class="nophtovideofound" ng-show="!performerd.id">Please Select Performer.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

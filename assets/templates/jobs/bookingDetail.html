@@ -1,0 +1,134 @@
+<!-- Starts Featured Section -->
+<div class="featured-section register-all-medium">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-8 col-sm-8">
+				<div class="bdayprty-whole">
+					<div class="bdayprty-whole-upper" style="width:80%!important;">
+                                                
+						<h3>{{assignmentDetail.jobId.jobTitle}}</h3>
+						<p>{{assignmentDetail.jobId.jobDescription}}</p>
+						<ul>
+							<li>
+							 	<label>Agreed Budget :</label>  <span>{{assignmentDetail.agreedBudget | currency:"$":0}}</span>
+							</li>
+							
+							<li>
+								<label>Assignment Status :</label>  <span class="astatus">{{assignmentDetail.assignmentStatus}}</span>  <!--<a href="#">Change Status</a>-->
+                                                                <span ng-if="assignmentDetail.performerReview == 0 && assignmentDetail.assignmentStatus=='Completed'"><a href="#/jobs/giveReview/{{assignmentID}}/{{assignmentDetail.jobId.id}}/{{assignmentDetail.performerId.id}}" class="inprogress" style="color:#fff!important;">Give your Valuable Review</a></span>
+                                                                <span ng-if="assignmentDetail.assignmentStatus=='Started' && showCancelbtn == true"><a href="javascript:void(0)" class="inprogress" style="color:#fff!important;" ng-click="updateAssignmentStatus('Cancellation')">Cancel Job</a></span>
+                                                                <span ng-if="assignmentDetail.assignmentStatus=='Work Done' || assignmentDetail.assignmentStatus=='Dispute'"><a href="javascript:void(0)" class="inprogress" style="color:#fff!important;" ng-click="updateAssignmentStatus('Completed')">Mark job Completed</a></span>
+                                                                <span ng-if="assignmentDetail.assignmentStatus=='Work Done'"><a href="javascript:void(0)" class="inprogress" style="color:#fff!important;" ng-click="updateAssignmentStatus('Dispute')">Dispute</a></span>                                                                
+                                                                
+							</li>
+                                                        
+                                                        <li>
+							 	<label>Payment Status :</label>  <span>{{assignmentDetail.paymentStatus}}</span>
+							</li>
+                                                        <li ng-if="assignmentDetail.userReview.reviewRating">
+                                                            <span>
+                                                                <p class="ratinggg">
+                                                                    <img ng-if="assignmentDetail.userReview.reviewRating > 0" src="images/frontend/starr.png"> 
+                                                                    <img ng-if="assignmentDetail.userReview.reviewRating > 1" src="images/frontend/starr.png"> 
+                                                                    <img ng-if="assignmentDetail.userReview.reviewRating > 2" src="images/frontend/starr.png">
+                                                                    <img ng-if="assignmentDetail.userReview.reviewRating > 3" src="images/frontend/starr.png">
+                                                                    <img ng-if="assignmentDetail.userReview.reviewRating > 4" src="images/frontend/starr.png">
+                                                                </p>
+                                                            </span>
+							</li>
+                                                        
+                                                         <li ng-if="assignmentDetail.userReview.reviewMessage">
+							 	<label>Review Comment :</label>  <span>{{assignmentDetail.userReview.reviewMessage}}</span>
+							</li>
+                                                        
+                                                        
+                                                       <!-- <li>
+                                                            &nbsp;&nbsp;
+                                                            <div class="ratingsss" ng-hide = 'assignmentDetail.performerReview > 0'>
+                                                                <a  href="#/jobs/giveReview/{{assignmentID}}/{{assignmentDetail.jobId.id}}/{{assignmentDetail.performerId.id}}" ng-show="assignmentDetail.assignmentStatus == 'Completed'" ng-disabled = 'assignmentDetail.performerReview > 0'>
+                                                                    <img src="images/frontend/starr.png"><img src="images/frontend/starr.png"><img src="images/frontend/starr.png"><img src="images/frontend/starr.png"><img src="images/frontend/starr.png">
+                                                                </a>
+                                                            </div>
+                                                        </li>-->
+						</ul>
+                                                <div class="row" ng-if="assignmentDetail.assignmentStatus == 'Cancellation'">
+                                                    <div class="col-lg-12">
+                                                        <div class="recentlyorgactivity-whole booking-div-margin">
+                                                            <form name="cancellationForm" class="form-signin" novalidate>
+                                                                <div class="basicinfo row">
+                                                                    <div class="rt-inputs table-message-text-box col-md-2" >
+                                                                        <textarea rows=2  ng-model="reason.msg" name="messages" required  placeholder="Write your Reason for Cancellation.."></textarea>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <input type="submit" class="yellow_btn" value="Update" ng-click="cancellationForm.$valid && saveReason(reason)">
+                                                                    </div>
+                                                                    <div >
+                                                                        <input type="submit" class="yellow_btn" style="margin-left: 14px;" value="Cancel " ng-click="cancelStatus()">
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div ng-if="!chatbox" class="hire-chat">
+                                                        <a  ng-click="boxaction()" href="javascript:void(0)"  class="chat">CHAT</a>
+                                                </div>
+					</div>
+                                       <span us-spinner="{radius:30, width:8, length: 16, scale:0.50}"></span>
+                                        <div class="row" ng-if="assignmentDetail.assignmentStatus == 'Dispute'">
+                                            <div class="col-lg-12">
+                                                    <div class="recentlyorgactivity-whole reviewsall-whole booking-div-margin">
+                                                        <form name="disputeMsgForm" class="form-signin" novalidate>
+                                                            <div class="basicinfo row">
+                                                                <div class="col-md-3"><h3 style="margin-top: 10px;"><b>Messages</b></h3></div>
+                                                                <div class="rt-inputs table-message-text-box col-md-2" >
+                                                                    <!--<input type="text" ng-model="messages.messag" name="messages" placeholder="Enter your message...">-->
+                                                                    <textarea rows=2 ng-model="messages.messag" name="messages" required  placeholder="Enter your message..."> </textarea>
+                                                                </div>
+                                                                <div class="col-md-3"></div>
+                                                                <div class="col-md-1">
+                                                                    <input type="submit" class="yellow_btn" style="margin-top: 28px;" value="Save" ng-click="disputeMsgForm.$valid && saveMessage(messages)">
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                            </div>
+                                            <div class="col-lg-12" ng-if="jobMessages.length > 0">
+                                                    <div class="recentlyorgactivity-whole reviewsall-whole ">
+                                                        <div class="prtcular-item" ng-repeat="msg in jobMessages">
+                                                                <div class="prtcular-item-img">
+                                                                        <img ng-src="{{msg.userId.profilePhoto}}">
+                                                                </div>
+                                                                <div class="prtcular-item-rt">
+                                                                    <h4>{{msg.userId.firstName}}{{msg.userId.lastName}}</h4>
+                                                                    <p>{{msg.message}}</p>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+				</div>
+			</div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+				<div class="proposl-img proposl-img-rt">
+						<h4>{{assignmentDetail.performerId.firstName}} {{assignmentDetail.performerId.lastName}}</h4>
+									<img ng-src="{{assignmentDetail.performerId.profilePhoto || images/frontend/usericon.jpg}}">
+									<div class="ratingsss">
+                                                                            <img ng-if="assignmentDetail.performerId.grossRating > 0" src="images/frontend/starr.png"> 
+                                                                            <img ng-if="assignmentDetail.performerId.grossRating > 1" src="images/frontend/starr.png"> 
+                                                                            <img ng-if="assignmentDetail.performerId.grossRating > 2" src="images/frontend/starr.png">
+                                                                            <img ng-if="assignmentDetail.performerId.grossRating > 3" src="images/frontend/starr.png">
+                                                                            <img ng-if="assignmentDetail.performerId.grossRating > 4" src="images/frontend/starr.png">
+									</div>
+                                </div>
+                                <p>&nbsp;</p>
+				<div id="ChatInit" ng-if="chatbox" ng-controller="ChatInit" class="ng-scope">
+                                
+                                </div>
+			</div>
+		
+		</div>
+                
+	</div>
+</div>
+<!-- Ends Featured Section -->

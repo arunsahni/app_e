@@ -1,0 +1,61 @@
+<div class="featured-section register-all">
+  <div class="container">
+    <div class="register-box">
+        <div class="login-popup-form signup-popup-form">
+          
+
+              <input ng-show="user[0].companyName" type="text" placeholder="Company name" name="companyName" ng-model="user[0].companyName" required>
+              <div ng-show="registerForm.companyName.$dirty" ng-messages="registerForm.companyName.$error">
+               <div ng-message="required">
+                Please enter a valid Company Name 
+               </div>
+              </div>
+
+              <input type="text" placeholder="First Name" name="managerFirstName" ng-model="user[0].firstName" required>
+              <div ng-show="registerForm.managerFirstName.$dirty" ng-messages="registerForm.managerFirstName.$error">
+               <div ng-message="required">
+                Please enter first name .
+               </div> 
+              </div>
+
+               <input type="text" placeholder="Last Name" name="managerLastName" ng-model="user[0].lastName" required>
+               <div ng-show="registerForm.managerLastName.$dirty" ng-messages="registerForm. managerLastName.$error">
+                <div ng-message="required">
+                  Please enter  last name .
+                </div> 
+               </div>
+              
+               <input type="email" placeholder="Email" name="email" ng-model="user[0].email" required>
+                <div ng-show="registerForm.email.$dirty" ng-messages="registerForm.email.$error">
+                  <div ng-message="required">
+                    Please enter a valid email address
+                  </div>
+                   <div ng-message="email">
+                    That is not a well formed email address.
+                   </div>
+                </div>
+
+              <div class="radio-optns">
+                <p><input type="radio" name="role"  value="Performer"  ng-model="user[0].role" checked > <span>I am a Performer
+                </span></p>
+                <p><input type="radio" name="role" value="Customer" ng-model="user[0].role" > 
+                <span>I am a user</span></p>
+              </div>
+            
+              <div class="radio-optns">
+                <p><input type="radio"  value="male" checked ng-model="user[0].gender" name="gender" > <span>Male</span></p>
+                <p><input type="radio"  value="female" ng-model="user[0].gender" name="gender" > <span>Female</span></p>
+              </div>
+              
+              <div class="terms-cndtns">
+                <input type="checkbox"> <span>Terms of Use and Privacy Policy</span>
+              </div>
+                <input type="submit" value="Register" class="login-submit" ng-click="register()" >
+            </form>
+            <div class="clear"></div>
+          </div>
+          <h3 class="register-title">Register</h3>
+
+    </div>
+  </div>
+</div>

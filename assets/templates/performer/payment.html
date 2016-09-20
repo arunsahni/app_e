@@ -1,0 +1,88 @@
+<div class="featured-section register-all-medium">
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#/performer/payments">Payment Received</a></li>
+             <li ><a data-toggle="tab" href="#/performer/subscriptionsPayment">Subscription Payment</a></li>
+        </ul>
+        <div class="payment_received">
+            <h3>Payment Received</h3>
+        </div>
+        <form name="selectDate" ng-controller="DatepickerControllerForSort">
+        <div style="float:right" >
+            <div class="date_range fix_error">
+                <ul class="text_flow1">
+                    <li>Date Range</li>
+                    <li >
+                             <input name="jobStartDateTime" type="date" class="" uib-datepicker-popup="{{format}}"  is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" readonly="true" ng-model="key.startKey" required/>
+                            <span class="">
+                               <button type="button" class="btn btn-default" ng-click="open($event)"><i class=" glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                               <div ng-show="selectDate.jobStartDateTime.$dirty || selectDate.$submitted" ng-messages="selectDate.jobStartDateTime.$error">
+                        <div class="fieldmsgerror" ng-message="required">
+                        Please enter start date.
+                       </div> 
+                      </div>
+                     </li>
+
+                     <li>To</li>
+            
+                         <li >
+                             <input name="jobEndDateTime" type="date" class="" uib-datepicker-popup="{{format}}"  is-open="status.opened1" min-date="minDate1" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" readonly="true" ng-model="key.endKey" required />
+                            <span class="">
+                               <button type="button" class="btn btn-default" ng-click="open1($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                         <div ng-show="selectDate.jobEndDateTime.$dirty || selectDate.$submitted" ng-messages="selectDate.jobEndDateTime.$error">
+                        <div class="fieldmsgerror" ng-message="required">
+                        Please enter end date.
+                       </div> 
+                      </div>
+                     </li>
+                     <li><input type="submit" value="Search" class="searchblck" ng-click="selectDate.$valid && search()">
+                    </li>
+                    <li><button class="searchblck" ng-click="clearData()">Clear</button>
+                    </li>
+                </ul>
+            </div>
+            </div>
+                                 </form>
+
+
+                    <div class="table-common">
+                        <span us-spinner="{radius:30, width:8, length: 16, scale:0.50}"></span>
+                    <table>
+                        <thead>
+                            <!--th> <input type="checkbox"> </th-->
+                            <th>Payment Title</th>
+                            <th>Payment Date </th>
+                            <th>Amount</th>
+                            <th>Payment Status</th>
+                            <!--th>Transaction ID</th-->
+                        </thead>
+                        <tbody>
+                            <tr ng-show="Data.length > 0"ng-repeat="payData in Data">
+                                <!--td class="chkbox-col"> <input type="checkbox"  ng-model="payData.SELECTED" ng-true-value='1' ng-false-value='0'> </td-->
+                                <td class="proposals-col"> <a href="">{{payData.jobId.jobTitle}}</a></td>
+                                <td class="proposals-col">{{payData.createdAt | date:'medium'}}</td>
+                                <td class="proposals-col"><span id="currency-default">{{payData.amount | currency}}</span></td>
+                                <td class="proposals-col">{{payData.paymentStatus}}</td>
+                                <!--td class="proposals-col">{{payData.txnId}}</td-->
+                            </tr>    
+                            <tr ng-show="Data.length <=0" style="text-align:center">
+                                <td colspan="4">No record found</td>
+                            </tr>                                   
+                        </tbody>
+                    </table>
+                    </div>
+                     <!--div ng-if="Data.length > 0" class="deleteslcted">
+                        <a href="" class="searchblck" ng-click="deleteMultiple(Data)">Delete Selected</a>
+                    </div-->
+                               
+                       <div ng-show="Data.length > 0" class="box-footer clearfix">
+                         <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" items-per-page="itemsPerPage" ng-change="pageChanged()"></uib-pagination>
+                         <!--ul class="pagination pagination-sm no-margin pull-right">
+                        <li>Page: {{bigCurrentPage}} / {{numPages}}</li>
+                        </ul-->
+            </div>
+
+    </div>
+</div>

@@ -1,0 +1,139 @@
+<!-- Starts Featured Section -->
+<div class="featured-section register-all-medium">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="profilepage-rt editprofile">
+					<div class="profiletop">
+						<div class="row">
+							<div class="col-lg-12 col-md-12">
+								<div class="col-lg-4 col-md-4 col-sm-4">
+									<div class="profiledp" ng-controller="ImageController">
+									<img ng-show="image" ng-src="{{image.url}}" type="{{image.file.type}}">
+                                                                        <img ng-if="!image" ng-src="{{user.profilePhoto}}">
+                                                                        <div class="edit"><input ng-model="user.profilePhoto" type="file" accept="image/*" image="image" submit-required="true" onchange="angular.element(this).scope().imageUpload(this.files)"/></div>
+									</div>
+									<!--a href="#/company/viewProfile" class="yellow_btn">View Profile</a-->
+								</div>
+								
+								<div class="col-lg-8 col-md-8 col-sm-8">
+										<div class="aboutmartin-whole">
+										<h3>Edit Your Profile</h3>
+										
+										<div class="basicinfo">
+		 <form name="editProfile" class="form-signin" novalidate>								
+				<ul>
+
+					<li>
+						<label>* Company Name : </label>
+						<div class="rt-inputs">
+					    <input type="text" name="companyName" ng-model="user.companyName" required>
+							<div ng-show="editProfile.companyName.$dirty || editProfile.$submitted" ng-messages="     editProfile.companyName.$error">
+                             <div class="fieldmsgerror"  ng-message="required">
+                              Please enter Company Name.
+                             </div> 
+                           </div>
+							<h5><b>Note :</b> Please enter your company name. </h5>
+						</div>
+					</li>
+
+					<li>
+						<label>* Manager First Name : </label>
+						<div class="rt-inputs">
+							<input type="text" name="managerFirstName" ng-model="user.firstName" required>
+							 <div ng-show="editProfile.managerFirstName.$dirty || editProfile.$submitted" 
+							    ng-messages="editProfile.managerFirstName.$error">
+                             <div class="fieldmsgerror"  ng-message="required">
+                              Please enter Manager First Name.
+                             </div> 
+                           </div>
+
+							<h5><b>Note :</b> Please enter your first name. </h5>
+						</div>
+					</li>
+					<li>
+						<label> Manager Last Name : </label>
+						<div class="rt-inputs" >
+							<input type="text" name="managerLastName" ng-model="user.lastName" >
+
+							<h5><b>Note :</b> Please enter your last name. </h5>
+						</div>
+					</li>
+					
+					
+					<li>
+						<label>* Email :  </label>
+						<div class="rt-inputs" >
+							<input type="email" name="email" ng-model="user.email" required>
+							<div ng-show="editProfile.email.$dirty || editProfile.$submitted" ng-messages="editProfile.email.$error">
+                             <div class="fieldmsgerror"  ng-message="required">
+                                Please enter a valid email address
+                             </div>
+                               <div class="fieldmsgerror"  ng-message="email">
+                                  That is not a well formed email address
+                               </div>
+                           </div>
+							<h5><b>Note :</b> Please enter a valid email address </h5>
+						</div>
+					</li>
+					
+					<li>
+						<label>* Mobile Number :  </label>
+						<div class="rt-inputs">
+							<input type="text" name="mobileNumber" ng-model="user.phoneNumber" required>
+							 <div class="fieldmsgerror" ng-show="editProfile.mobileNumber.$dirty || editProfile.$submitted" ng-messages="     editProfile.mobileNumber.$error">
+                             <div ng-message="required">
+                              Please enter Mobile Number.
+                             </div> 
+                           </div>
+
+							
+							<h5><b>Note :</b> Please enter a valid phone number. </h5>
+						</div>
+					</li>
+					
+					<li class="headingli">
+						<h4>Details</h4>
+					</li>
+
+					
+					<li>
+						<label> Address :  </label>
+						<div class="rt-inputs">
+							<textarea name="adress" ng-model="user.address" required> </textarea>
+							<div ng-show="editProfile.adress.$dirty || editProfile.$submitted" ng-messages="     editProfile.adress.$error">
+                             <div class="fieldmsgerror"  ng-message="required">
+                              Please enter Company Name.
+                             </div> 
+                           </div>
+
+							
+							<h5><b>Note :</b>Let us know where you are currently located.  </h5>
+						</div>
+					</li>
+					
+					<li>
+						<label> &nbsp;  </label>
+						<div class="rt-inputs">
+							<input type="submit" class="yellow_btn" value="Save" ng-click="editProfile.$valid && editProfileData()">
+                                                        <span us-spinner="{radius:30, width:8, length: 16, scale:0.50}"></span>
+						</div>
+					</li>
+                                        <li>
+                                            <div flash-message="5000" ></div>
+                                        </li>
+					
+				</ul>
+			</div>
+			</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Ends Featured Section -->

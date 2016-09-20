@@ -1,0 +1,91 @@
+<!-- Starts Featured Section -->
+<div class="featured-section register-all">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="profilepage-rt editprofile">
+					<div class="profiletop">
+						<div class="row">
+							<div class="col-lg-12 col-md-12">
+										<div class="aboutmartin-whole">
+										<h3>Post Your Job</h3>
+			 <form>								
+			                 <div class="basicinfo">
+									
+				<ul>
+					<li>
+						<label>Job Category : </label>
+						<div class="rt-inputs">
+							<select>
+								<option>All Categories</option>
+								<option ng-repeat="eachCategory in categoryDataAll">{{ eachCategory.categoryTitle }}</option>
+							</select>
+							
+						</div>
+					</li>
+					<li>
+						<label> Job Title : </label>
+						<div class="rt-inputs" >
+							<input type="text" ng-model="user[0].lastName">
+							
+						</div>
+					</li>
+					
+					<li>
+						<label>Date & Time (Start) :  </label>
+						<div class="rt-inputs" ng-controller="DatepickerController">
+							<p class="input-group">
+                            <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                          <span class="input-group-btn">
+                           <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                          </span>
+                         </p>
+							
+						</div>
+					</li>
+					
+					<li>
+						<label>*Date & Time (End) :  </label>
+						<div class="rt-inputs">
+							<input type="text" ng-model="user[0].phoneNumber">
+							
+							
+						</div>
+					</li>
+					
+					<li>
+						<label> Job Description :  </label>
+						<div class="rt-inputs">
+							<textarea ng-model="user[0].address"> </textarea>
+	
+						</div>
+					</li>
+					<li>
+						<label>Budget: </label>
+						<div class="rt-inputs" >
+							<input type="number" ng-model="user[0].lastName">
+							
+						</div>
+					</li>
+					
+					<li>
+						<label> &nbsp;  </label>
+						<div class="rt-inputs">
+							<input type="submit" class="yellow_btn" value="Post Job" ng-click="">
+							<input type="submit" class="yellow_btn" value="Cancel" ng-click="">
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+			</form>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Ends Featured Section -->

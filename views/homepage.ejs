@@ -1,0 +1,19 @@
+<!-- Starts slider -->
+<div ng-if="showSlider" ng-include="'/templates/elements/slider.html'"></div>
+ <!-- Ends slider-->
+
+<!-- Starts Header -->
+<div ng-controller="NavController">
+	<ng-include ng-if="userRole == 'Customer'" src="'/templates/elements/customerHeader.html'"></ng-include>
+	<ng-include ng-if="userRole == 'Performer'" src="'/templates/elements/performerHeader.html'"></ng-include>
+	<ng-include ng-if="userRole == 'Company'" src="'/templates/elements/companyHeader.html'"></ng-include>
+	<ng-include ng-if="userRole == 'anon'" src="'/templates/elements/header.html'"></ng-include>
+</div>
+
+<!-- Ends Header-->
+
+<div ui-view></div>
+
+<!-- Starts Header -->
+<ng-include src="'/templates/elements/footer.html'"></ng-include>
+<!-- Ends Header--> 

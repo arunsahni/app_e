@@ -1,0 +1,65 @@
+<!-- Starts Featured Section -->
+<div class="featured-section register-all-medium">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-9 col-md-9 col-sm-9">
+				<div class="bdayprty-whole">
+				    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                            <div class="profilepage-rt editprofile">
+                                                <div class="profiletop">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12">
+                                                            <div class="aboutmartin-whole">
+                                                                <h3>Give Review</h3>
+                                                                <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert}}</uib-alert>	
+                                                        <form name="reviewForm" class="form-signin" novalidate>
+                                                            <div class="basicinfo">
+                                                                <ul>
+                                                                    <li>
+                                                                        <label>*Select Rate User : </label>
+                                                                            <div class="rt-inputs">
+                                                                                <uib-rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
+                                                                                <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{rating}}</span>
+
+                                                                                <!--<select ng-model="job.jobCategory" >-->
+                                                                                <!--    <option ng-repeat="eachCategory in categoryDataAll" value="{{ eachCategory.categoryTitle }}">{{ eachCategory.categoryTitle }}</option>-->
+                                                                                <!--    </select>-->
+                                                                            </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label> *Write Review :  </label>
+                                                                            <div class="rt-inputs">
+                                                                                <textarea ng-model="review.reviewMessage" name="description" required> </textarea>
+                                                                                <div ng-show="reviewForm.description.$dirty || reviewForm.$submitted" ng-messages="reviewForm.description.$error">
+                                                                                    <div class="fieldmsgerror" ng-message="required">
+                                                                                    Please enter Review.
+                                                                                   </div> 
+                                                                                </div>
+                                                                            </div>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                            <label> &nbsp;  </label>
+                                                                            <div class="rt-inputs">
+                                                                                    <input type="submit" class="yellow_btn" value="Save Review" ng-click="reviewForm.$valid && saveReviewData(rate)">
+                                                                                    <input type="submit" class="yellow_btn" value="Cancel" ng-click="cancel()">
+                                                                            </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            <span us-spinner="{radius:30, width:8, length: 16, scale:0.50}"></span>
+                                                        </form>
+                                                        </div>
+						    </div>
+						</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Ends Featured Section -->

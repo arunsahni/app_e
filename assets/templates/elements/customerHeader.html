@@ -1,0 +1,147 @@
+<div class="header-main" scroll>
+	<div class="top-links">
+		<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <div class="callus" ng-show="auth.isAuthenticated()">
+					<p><a href="#/ticket">Help</a></p>
+				</div>
+				<div class="top-left-logo">
+                                    <a href="#/"><img src="images/frontend/logo-small.png"></a>
+                                </div>
+			</div>
+			
+			<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+				<div class="socialicons">
+					<ul>
+						<li>
+							<a href="#"> <img src="images/frontend/twitter.png"> </a>
+						</li>
+						<li>
+							<a href="#"> <img src="images/frontend/instagram.png"> </a>
+						</li>
+						<li>
+							<a href="#"> <img src="images/frontend/facebook.png"> </a>
+						</li>
+						<li>
+							<a href="#"> <img src="images/frontend/youtube.png"> </a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				<div class="loginreg">
+					<p style="float:right;">
+                                                <span> | </span>
+                                                <a href="#/search/performer" ng-show="auth.isAuthenticated()">Search</a>
+                                                <span> | </span>
+						<a ng-hide="auth.isAuthenticated()" href="#/login">Login</a> 
+						<a href="{{userDashUrl}}" ng-show="auth.isAuthenticated()">My Account</a>
+						<span> | </span>
+						<a ng-hide="auth.isAuthenticated()" href="#/register">Register</a>
+						<a href="#/login" ng-click="logout()" ng-show="auth.isAuthenticated()">Logout</a>
+                                                
+                                                <div class="btn-group notifications-dd" uib-dropdown is-open="status.isopen">
+							  <button id="single-button" type="button" class="notifications" uib-dropdown-toggle ng-disabled="disabled">
+								<font>{{unreadNotifications.length || 0}}</font>
+							  </button>
+                                                          <head-Notification></head-Notification>
+							  <!--ul class="uib-dropdown-menu" role="menu" aria-labelledby="single-button">
+							  	<li class="arrow-up"></li>
+                                                                <li ng-if="unreadNotifications.length > 0" ng-repeat="eachnotify in unreadNotifications">
+                                                                    <div class="lt-dropdown-frndreq"> 
+                                                                        <a href="javascript:void(0)"><img ng-src="{{eachnotify.sender.profilePhoto}}"  /></a> </div>
+                                                                    <div class="rt-dropdown-frndreq">
+                                                                        <label ng-if="eachnotify.attachedLink"> 
+                                                                            <a href="{{eachnotify.attachedLink}}" ng-click="readNotification(eachnotify.id)">{{eachnotify.message}}</a>
+                                                                        </label>
+                                                                        <label ng-if="!eachnotify.attachedLink"> 
+                                                                            <a href="javascript:void(0)" ng-click="readNotification(eachnotify.id)">{{eachnotify.message}}</a>
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li ng-if="unreadNotifications.length <= 0">
+                                                                   <div class="rt-dropdown-frndreq">
+                                                                        <label>No unread notifications found</label></div>
+                                                                </li>
+							  </ul-->
+                                                </div>
+					</p>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	
+	
+	<!-- <div ng-if="searchBar" class="top-mid-bar" id="sticker" scroll-position="scroll" ng-class="{'stick-lt': scroll > 0, 'stick': scroll > 0}">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+					<h1 class="logo">
+					<a href="#/"></a>
+					</h1>
+				</div>
+				
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+					<div class="searchtop-whole"> 
+						<form name="searchForm" novalidate>
+							<input type="text" placeholder="Search Performers" name="searchKeyword" ng-model="search.searchKeyword">
+							<a href="javascript:void(0);" class="searchicon"></a>
+							<select name="searchCategory" ng-model="search.searchCategory">
+								<option value="">All Categories</option>
+								<option ng-repeat="eachCategory in categoryData">{{ eachCategory.categoryTitle }}</option>
+							</select>
+							<input type="submit" value="Search" class="yellow_btn" ng-click="searchPerformer()">
+						</form>
+							<a href="#/jobs/post"  class="yellow_btn postjob">Post Job</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	
+<!-- Starts Menus-->
+	<nav class="navbar navbar-default menus" role="navigation">
+		<div class="container">
+			<div class="menusall">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" ng-click="setMoblNav()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse {{mobileNavClass}}">
+            <ul class="nav navbar-nav loginafter-menus">
+                <li ng-class="{ active: isActive('/user/editProfile')}">
+                	<a href="#/user/editProfile">My Profile</a>
+                </li> <!-- class="active" -->
+                <li ng-class="{ active: isActive('/jobs/list')}">
+                	<a href="#/jobs/list">All Jobs</a>
+                </li>
+                <li ng-class="{ active: isActive('/jobs/post')}">
+                	<a href="#/jobs/post">Post Job</a>
+                </li>
+                <li ng-class="{ active: isActive('/jobs/myBokinglist')}">
+                	<a href="#/jobs/myBokinglist">My Bookings</a>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+		</div>
+		</div>
+</nav>
+<!-- Ends Menus-->
+
+
+</div>
+
+<!--div id="advertisement-control">
+	<h4 ng-click="advShow()">{{advShowTxt}}</h4>
+
+	<div id="advertisemnt-add" class="slidingDiv" ng-show="advState">
+		<img src="images/frontend/advertisement.jpg">
+	</div>
+</div-->

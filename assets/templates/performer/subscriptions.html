@@ -1,0 +1,153 @@
+<!-- Starts Featured Section -->
+<div class="featured-section register-all-medium">
+	<div class="container">
+		
+		<div class="row linkbtnlast" ng-if="subscriptionEndDate">
+				<span class="yellow_btn">Subscription expiration date - {{subscriptionEndDate | date:'dd-MMM-yyyy'}}</span>
+                </div>
+		<!--div class="row"></div-->
+		<div class="row">
+		<section class="container-mid pricingplans">
+					<div class="col-lg-4 col-md-4 col-sm-4">
+                                            <section class="plan-prticular goldplan" ng-class="{standardplan: activegold==true}">
+                    	<ul>
+                        	<li>
+                            	<blockquote>Gold</blockquote>
+                                <h5>
+                                	<span>$</span> <label>{{goldprice}}</label> <b>/ MO</b>
+                                </h5>
+                            </li>
+                            
+                            <li>
+                            	<p>On-Line Ticket Support </p>
+                            </li>
+                            
+                            <li>
+                            	<p>FAST 24 hour Release of payment</p>
+                            </li>
+                            
+                            <li>
+                            	<p>Unlimited SMS Messages</p>
+                            </li>
+							
+							<li>
+                            	<p>Up to 3 Video Upload per listing </p>
+                            </li>
+							
+							<li>
+                            	<p>Eligible for Guarantee of service </p>
+                            </li>
+                            
+                            <li>
+                                <div class="features-readmore">
+                                    <a ng-if="activegold" class="button-default blue" href="javascript:void(0)">Current</a>
+                                    <a ng-if="!activegold" class="button-default blue" href="javascript:void(0)" ng-click="initiateSubscription('Gold')">Buy Now</a>
+                                </div>
+                            </li>
+                            <!--<li>
+                            	 <a href="#" class="edit-del">Edit</a>  <a href="#" class="edit-del">Delete</a>
+                            </li>-->
+                        </ul>
+                        
+                        <!--<section class="active-state">
+                        	<span>Active</span>
+                        </section>-->
+                    </section>
+                    </div>
+					
+					
+					<div class="col-lg-4 col-md-4 col-sm-4">                    
+                    <section class="plan-prticular" ng-class="{standardplan: activesilver==true}"> <!-- standardplan -->
+                    	<ul>
+                        	<li>
+                            	<blockquote>Silver</blockquote>
+                                <h5>
+                                	<label>Free</label>
+                                </h5>
+                            </li>
+                            
+                            <li>
+                            	<p>On-Line Ticket Support</p>
+                            </li>
+                            
+                            <li>
+                            	<p>FAST 48 hour Release of payment</p>
+                            </li>
+                            
+                            <li>
+                            	<p>8 FREE SMS Messages</p>
+                            </li>
+							
+							<li>
+                            	<p>Single Video Upload</p>
+                            </li>
+                            
+                            <li>
+                                
+                            	 <div class="features-readmore">
+                                     <a ng-if="activesilver" class="button-default blue" href="javascript:void(0)">Current</a>
+                                     <a ng-if="!activesilver" class="button-default blue" ng-click="initiateSubscription('Silver')" href="javascript:void(0)">Get Free</a>
+                                 </div>
+                            </li>
+                        </ul>
+                    </section>
+                    </div>
+					
+					
+					
+					<div class="col-lg-4 col-md-4 col-sm-4">
+                    <section class="plan-prticular" ng-class="{standardplan: activeplatinum==true}">
+                    	<ul>
+                        	<li>
+                            	<blockquote>Platinum</blockquote>
+                                <h5>
+                                	<span>$</span> <label>{{platinumprice}}</label> <b>/ MO</b>
+                                </h5>
+                            </li>
+                            
+                            <li>
+                            	<p>On-Line Ticket Support </p>
+                            </li>
+                            
+                            <li>
+                            	<p>FAST 24 hour Release of payment </p>
+                            </li>
+                            
+                            <li>
+                            	<p>Unlimited SMS Messages</p>
+                            </li>
+							
+							 <li>
+                            	<p>Up to 3 Video Upload per listing </p>
+                            </li>
+                            
+                            <li>
+                            	<p>Feature Listings </p>
+                            </li>
+                            
+                            <li>
+                            	<p>Eligible for Guarantee of service </p>
+                            </li>
+                            
+                            <li>
+                            	 <div class="features-readmore">
+                                     <a ng-if="activeplatinum" class="button-default blue" href="javascript:void(0)">Current</a>
+                                     <a ng-if="!activeplatinum" class="button-default blue" href="javascript:void(0)" ng-click="initiateSubscription('Platinum')">Buy Now</a>
+                                 </div>
+                            </li>
+                        </ul>
+                    </section>
+					</div>
+                    <div class="clear"></div>
+					
+            </section>
+			</div>
+			
+			
+			<!--div class="row linkbtnlast">
+				<a href="javascript:void(0)" class="yellow_btn">CLICK HERE TO ADVERTISE ON eJizzy’s FRONT PAGE </a>
+			</div-->
+			
+	</div>
+</div>
+<!-- Ends Featured Section -->

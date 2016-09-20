@@ -1,0 +1,92 @@
+<!-- Starts Featured Section -->
+<div class="featured-section register-all-medium">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-8 col-sm-8">
+				<div class="bdayprty-whole">
+					<div class="bdayprty-whole-upper">
+						<h3>{{jobData.jobTitle}}</h3>
+						<p>{{jobData.jobDescription}}</p>
+						<ul>
+							<li>
+							 	<label>Date & Time (Start) :</label>  <span>{{jobData.jobStartDateTime | date: 'MM-dd-yyyy h:mm a'}}</span>
+							</li>
+
+							<li>
+							 	<label>Date & Time (End) :</label>  <span>{{jobData.jobStartEndTime | date: 'MM-dd-yyyy h:mm a'}}</span>
+							</li>
+							
+							<li>
+							 	<label>Budget :</label>  <span>{{jobData.jobBudget}}</span>
+							</li>
+							
+							<li>
+								<label>Status :</label>  <span class="inprogress">{{jobData.jobStatus}}</span>  <!--<a href="#">Change Status</a>-->
+							</li>
+						</ul>
+					</div>
+					
+					<div class="bdayprty-whole-lower">
+						<h3>Assigned Members</h3>
+					</div>
+					
+					<div class="row">
+						<div class="col-lg-12 col-md-12">
+                                                    <div ng-if="jobAssignment.length > 0" ng-repeat="eachassignment in jobAssignment" class="proposl-prtclr">
+								<div class="proposl-img">
+                                                                    <img ng-src="{{eachassignment.performerId.profilePhoto}}">
+									<div class="ratingsss">
+										<img ng-if="eachassignment.performerId.grossRating > 0" src="images/frontend/starr.png"> 
+                                                                                <img ng-if="eachassignment.performerId.grossRating > 1" src="images/frontend/starr.png"> 
+                                                                                <img ng-if="eachassignment.performerId.grossRating > 2" src="images/frontend/starr.png">
+                                                                                <img ng-if="eachassignment.performerId.grossRating > 3" src="images/frontend/starr.png">
+                                                                                <img ng-if="eachassignment.performerId.grossRating > 4" src="images/frontend/starr.png">
+									</div>
+								</div>
+								<div class="perfrmr-name">
+									<h3>{{eachassignment.performerId.firstName}} {{eachassignment.performerId.lastName}}</h3>
+									<blockquote ng-if="eachassignment.performerId.feature_guarantee"> <img src="images/frontend/advncedserch.png"> </blockquote>
+								</div>
+								<div class="chat-div">
+									<!--<h3><img src="images/frontend/trophy.png" width="22"><span>Quote</span>-->
+									<a class="yellow_btn" href="#/jobs/bookingDetail/{{eachassignment.id}}">
+										View Details
+										<!--<font><img src="images/frontend/starr.png"><img src="images/frontend/starr.png"><img src="images/frontend/starr.png"><img src="images/frontend/starr.png"><img src="images/frontend/starr.png"></font></h3>-->
+									</a>
+									<!--<div class="attach-date">-->
+									<!--	<a href="#"><img src="images/frontend/attachment.png" width="22"></a>-->
+									<!--	<span>20 Oct 2015 10:30am</span>-->
+									<!--</div>-->
+								</div>
+								<!--div class="chat-div">
+									
+									<a ng-click="boxaction()" class="yellow_btn chat" >Chat </a>
+								</div-->
+								
+								<div class="latestquote">
+									<span>Agreed Budget :</span> <b>{{eachassignment.agreedBudget | currency:"$":0}}</b>
+								</div>
+							</div>
+							<div ng-if="jobAssignment.length <= 0" class="proposl-prtclr">No members are assigned yet</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-4 col-md-4 col-sm-4">
+				<!--div class="proposl-img proposl-img-rt">
+						<h4>Brijesh Pant</h4>
+                                                <img src="images/frontend/usericon.jpg">
+                                                <div class="ratingsss">
+                                                        <img src="images/frontend/starr.png"><img src="images/frontend/starr.png"><img src="images/frontend/starr.png"><img src="images/frontend/starr.png"><img src="images/frontend/starr.png">
+                                                </div>
+                                </div-->
+				<!--div id="ChatInit" ng-if="chatbox" ng-controller="ChatInit" class="ng-scope">
+					
+				</div-->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Ends Featured Section -->

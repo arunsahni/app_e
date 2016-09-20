@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Job Details</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <div>
+                  <label>Job Title:</label>
+                  <span>{{jobDetails.jobTitle}}</span>
+                </div>
+                <div>
+                  <label>Job Description:</label>
+                  <span>{{jobDetails.jobDescription}}</span>
+                </div>
+                <div>
+                  <label>Job Status:</label>
+                  <span>{{jobDetails.jobStatus}}</span>
+                </div>
+                <div>
+                  <label>Job Budget:</label>
+                  <span>{{jobDetails.jobBudget}}</span>
+                </div>
+                <div>
+                  <label>Job Start Date:</label>
+                  <span>{{jobDetails.jobStartDateTime | date: 'MM-dd-yyyy'}}</span>
+                </div>
+                <div>
+                  <label>Job End Date:</label>
+                  <span>{{jobDetails.jobStartEndTime | date: 'MM-dd-yyyy'}}</span>
+                </div>
+                <div class="bdayprty-whole-lower">
+      						<h4 class="box-title">Assigned Members</h3>
+      					</div>
+               <div ng-repeat="performers in assignedPerformers"  >
+                  <label ng-if="performers.firstName">First Name:</label>
+                  <span ng-if="performers.firstName">{{performers.firstName}}</span>
+                </div>
+            </div><!-- /.box-body -->
+            <div class="box-footer clearfix">
+
+            </div>
+        </div><!-- /.box -->
+    </div>
+</div>

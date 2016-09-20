@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Transaction Details</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <div>
+                  <label>Job Title:</label>
+                  <span>{{transactionDetails.jobId.jobTitle}}</span>
+                </div>
+                <div>
+                  <label>Job Host :</label>
+                  <span>{{transactionDetails.hostId.firstName +' '+ transactionDetails.hostId.lastName}}</span>
+                </div>
+                <div>
+                  <label>Performer:</label>
+                  <span>{{transactionDetails.companyId.firstName}}</span>
+                </div>
+                <div>
+                  <label>Application Fee:</label>
+                  <span>{{transactionDetails.applicationFee}}</span>
+                </div>
+                <div>
+                  <label>Processing Fee:</label>
+                  <span>{{transactionDetails.processingFee}}</span>
+                </div>
+                <div>
+                  <label>Amount:</label>
+                  <span>{{transactionDetails.amount}}</span>
+                </div>
+                <div>
+                  <label>Payment Type:</label>
+                  <span>{{transactionDetails.paymentType}}</span>
+                </div>
+                <div>
+                  <label>Payment Gateway:</label>
+                  <span>{{transactionDetails.paymentGateway}}</span>
+                </div>
+                <div>
+                  <label>Payment Status:</label>
+                  <span>{{transactionDetails.paymentStatus}}</span>
+                </div>
+                <a href="#/transactions">
+                <button type = "button" class="btn btn-primary">Back</button>
+            </div><!-- /.box-body -->
+            <div class="box-footer clearfix">
+
+            </div>
+        </div><!-- /.box -->
+    </div>
+</div>

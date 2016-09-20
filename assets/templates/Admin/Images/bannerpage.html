@@ -1,0 +1,38 @@
+<h2>Banner Images</h2>
+<style>.dsc-inputs textarea {background: #fff;border: 1px solid #ccc;height: 70px;padding: 10px;resize: none;width: 100%;margin: 10px 0;}
+    .close{ font-size: 28px;margin: -8px 0 0;}
+    .nav-tabs{margin-bottom:2%}
+    .uploadPortfolio{float: right;margin-bottom: 2%;margin-right: 12px;}
+    .portfolio-data img{height:150px; width:262px;}</style>
+<div class="col-xs-12">
+    <div class="box">
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <div class="row">
+                <ul>
+                    <li >
+                    <a href ng-click='uploadImg()'>
+                      <button type="button">
+                      Upload Image/s
+                      </button>
+                    </a>
+                    <input id='upload' class="yellow_btn uploadPortfolio" type="file" name="" ng-disabled="false" onchange="angular.element(this).scope().BannerImageUpload(this.files)" multiple accept="image/*" style='display:none' />
+                    </li>
+                </ul>
+                </div>
+                <div class="row portfolio-data">
+                    <span us-spinner="{radius:30, width:8, length: 16, scale:0.50}"></span>
+                    <div class="col-md-3 portfolio-item" ng-repeat="img in bannerImage.data " >
+                        <button type="button" class="close" ng-click='deleteImg(img.id,$event)'>×</button>
+                            <img class="img-responsive" ng-src="{{ img.filePath }}" alt="Banner Image" ></img>
+
+                        <div class="dsc-inputs">
+                            <textarea ng-model="img.description"  style="" placeholder="Short Photo Description" ng-blur="onBlur($event,img.id)"></textarea>
+                        </div>
+                    </div>
+                </div>  <!-- class-row portfolio -->
+
+            </div>
+        </div>
+    </div>
+</div>

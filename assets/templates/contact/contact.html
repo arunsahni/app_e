@@ -1,0 +1,32 @@
+<form name="contactForm" class="form-signin" novalidate>
+  <div class="control-group">
+    Email<input type="email" class="form-control" placeholder="email" name="email" ng-model="user.email" required>
+    <div ng-show="contactForm.email.$dirty" ng-messages="contactForm.email.$error">
+      <div ng-message="required">
+        You forgot the email address.
+      </div>
+      <div ng-message="email">
+        That is not a well formed email address.
+      </div>
+    </div>
+  </div>
+  <div class="control-group">
+    Name<input type="name" class="form-control" placeholder="name" name="name" ng-model="user.name" required>
+    <div ng-show="contactForm.name.$dirty" ng-messages="contactForm.name.$error">
+      <div ng-message="required">
+        You forgot the name.
+      </div>
+    </div>
+  </div>
+  </br>
+  <div class="control-group">
+    Message<input type="textarea" class="form-control" placeholder="Message" name="message" ng-model="user.message" required>
+    <div ng-show="contactForm.message.$dirty" ng-messages="contactForm.message.$error">
+      <div ng-message="required">
+        You forgot the message.
+      </div>
+    </div>
+  </div>
+  </br>
+   <input type="submit" class="btn btn-lg btn-primary btn-block" ng-click="contact()" value="Send Message" />
+</form>

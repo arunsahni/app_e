@@ -1,0 +1,145 @@
+<div ng-controller="ConfigController" ng-class="{'wrapper':auth.isAuthenticated()}">
+    <header class="main-header" >
+        <!-- Logo -->
+        <a href class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>Eji</b></span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>Ejizzy</b></span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation"  ng-controller="NavController">
+            <!-- Sidebar toggle button-->
+            <!--            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" ng-click="isCollapsed = !isCollapsed">
+                            <span class="sr-only">Toggle navigation</span>
+                        </a>-->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li ng-hide="auth.isAuthenticated()"><a href="#/login">Login</a></li>
+                    <li class="dropdown user user-menu" ng-show="auth.isAuthenticated()">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="hidden-xs">Hello, <strong>{{user().email}}</strong></span>
+                        </a>
+                    </li>
+                    <li ng-show="auth.isAuthenticated()"><a href="#/login" ng-click="logout()">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar" ng-if="auth.isAuthenticated()" ng-controller="NavController">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="/images/backend/admin.png" class="img-circle" alt="User Image" >
+                </div>
+                <div class="pull-left info">
+                    <p>Administrator</p>
+                    <a href><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                <li ng-class="{active: isActive == '1' || isActive == 'dashboard'}" ng-click="submenu('1')">
+                    <a href="#/dashboard" >
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="treeview" ng-class="{active: isActive == '2' || isActive == 'users' }" ng-click="submenu('2')">
+                    <a href>
+                        <i class="fa fa-user-plus"></i>
+                        <span>Manage Users</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li ng-class="{active:isSubActive == 'Performers/Companies'}" ng-click="subActive('Performers/Companies')"><a href="#/performers"><i class="fa fa-circle-o"></i> Performers/ Companies</a></li>
+                        <li  ng-class="{active: isSubActive == 'users' }" ng-click="subActive('users')"><a href="#/users"><i class="fa fa-circle-o"></i> Users</a></li>
+                    </ul>
+                </li>
+                <!-- <li class="treeview" ng-class="{active: isActive == '3' || isActive == 'subsPlan'}" ng-click="submenu('3')">
+                    <a href>
+                        <i class="fa fa-feed"></i>
+                        <span>Subscriptions</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li ng-class="{active: isSubActive == 'subsPlan' }" ng-click="subActive('subsPlan')"><a href="#/subsPlan"><i class="fa fa-circle-o"></i> Plans</a></li>
+                        <li ng-class="{active: isSubActive == 'usersubscriptions' }" ng-click="subActive('usersubscriptions')"><a href="#/usersubscriptions"><i class="fa fa-circle-o"></i> User Subscriptions</a></li>
+                    </ul>
+                </li> -->
+                <li ng-class="{active: isActive == '4'}" ng-click="submenu('4')">
+                    <a href="#/jobs" >
+                        <i class="fa fa-briefcase"></i> <span>Jobs</span>
+                    </a>
+                </li>
+                <li ng-class="{active: isActive == '5'}" ng-click="submenu('5')">
+                    <a href="#/bookings" >
+                        <i class="fa fa-calendar-check-o"></i> <span>Bookings</span>
+                    </a>
+                </li>
+                <li ng-class="{active: isActive == '6'}" ng-click="submenu('6')">
+                    <a href >
+                        <i class="fa fa-bars"></i>
+                        <span>Categories</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li ng-class="{active:isSubActive == 'addCategories'}" ng-click="subActive('addCategories')"><a href="#/addCategories"><i class="fa fa-circle-o"></i> Add Categories</a></li>
+                        <li  ng-class="{active: isSubActive == 'categories' }" ng-click="subActive('categories')"><a href="#/categories"><i class="fa fa-circle-o"></i> Categories</a></li>
+                    </ul>
+                </li>
+                <li ng-class="{active: isActive == '7'}" ng-click="submenu('7')">
+                    <a href="#/transactions" >
+                        <i class="fa fa-dollar"></i> <span>Transactions</span>
+                    </a>
+                </li>
+                <!-- <li ng-class="{active: isActive == '8'}" ng-click="submenu('8')">
+                    <a href="#/featured" >
+                        <i class="fa fa-tasks"></i> <span>Featured</span>
+                    </a>
+                </li> -->
+                <li ng-class="{active: isActive == '9'}" ng-click="submenu('9')">
+                    <a href="#/disputed" >
+                        <i class="fa fa-legal"></i> <span>Disputed Jobs</span>
+                    </a>
+                </li>
+                <li ng-class="{active: isActive == '10'}" ng-click="submenu('10')">
+                    <a href="#/homeBanner" >
+                        <i class="fa fa-image"></i> <span>Home Page Banner</span>
+                    </a>
+                </li>
+                <li ng-class="{active: isActive == '11'}" ng-click="submenu('11')">
+                    <a href="#/advertisements" >
+                        <i class="fa fa-external-link"></i> <span>Advertisements</span>
+                    </a>
+                </li>
+                <li ng-class="{active: isActive == '12'}" ng-click="submenu('12')">
+                    <a href="#/ticketSupport" >
+                        <i class="fa fa-wrench"></i> <span>Ticket Support</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+    <!-- Content Wrapper. Contains page content -->
+    <div  ng-class="{'content-wrapper':auth.isAuthenticated()}">
+         <!-- Content Header (Page header) -->
+        <section class="content-header" ng-if="auth.isAuthenticated()">
+          <h1>
+            Dashboard
+            <small>Control panel</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div ui-view></div>
+        </section>
+    </div>

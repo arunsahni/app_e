@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-warning">
+            <div class="box-header with-border">
+               <h3 class="box-title">General Elements</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <form role="form">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label>FirstName</label>
+                      <input type="text" class="form-control" placeholder="Enter Name of the Performer/Company.." ng-model="userDetails.firstName">
+                    </div>
+                    <div class="form-group">
+                      <label ng-if = "userDetails.role =='Company'" >Company Name</label>
+                      <input type="text" class="form-control" ng-if = "userDetails.role =='Company'" placeholder="Enter Name of the Company.." ng-model="userDetails.companyName">
+                    </div>
+                    <div class="form-group">
+                      <label ng-if = "userDetails.role =='Performer'" >Last Name</label>
+                      <input type="text" class="form-control" ng-if = "userDetails.role =='Performer'" placeholder="Enter last name of the user.." ng-model="userDetails.lastName">
+                    </div>
+                    <div class="form-group">
+                      <label>Years working since</label>
+                      <input type="text" class="form-control" placeholder="Enter Experience.." ng-model="userDetails.experienceYear">
+                    </div>
+                    <div class="form-group">
+                      <label>Address</label>
+                      <input type="text" class="form-control" placeholder="Enter address of the performer/company.." ng-model="userDetails.address">
+                    </div>
+                    <div class="form-group">
+                      <label>Country</label>
+                      <input type="text" class="form-control" placeholder="Enter country of the performer/company.." ng-model="userDetails.country">
+                    </div>
+
+
+                    <div class="box-footer">
+                    <button type="submit" class="btn btn-primary" ng-click="update()">Submit</button>
+                    </div>
+                </form>
+              </div><!-- /.box-body -->
+            </div><!-- /.box -->
+          </div><!--/.col (right) -->
+  </div>   <!-- /.row -->

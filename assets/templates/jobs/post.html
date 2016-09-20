@@ -1,0 +1,142 @@
+<!-- Starts Featured Section -->
+<div class="featured-section register-all-medium">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="profilepage-rt editprofile">
+                    <div class="profiletop">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="aboutmartin-whole">
+                                    <h3>Post Your Job</h3>
+                                    <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert}}</uib-alert>	
+                                    <form name="jobPostForm" class="form-signin" novalidate>								
+                                        <div class="basicinfo">
+                                            <ul>
+                                                <li>
+                                                    <label>*Job Category : </label>
+                                                    <div class="rt-inputs">
+                                                        <select ng-model="job.jobCategory" ng-options="eachCategory.categoryTitle for eachCategory in categoryDataAll">
+                                                            <option value="" selected="selected">All Categories</option>
+                                                        </select>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <label> *Job Title : </label>
+                                                    <div class="rt-inputs" >
+                                                        <input type="text" ng-model="job.jobTitle" name="jobTitle" required>
+                                                        <div ng-show="jobPostForm.jobTitle.$dirty || jobPostForm.$submitted" ng-messages="jobPostForm.jobTitle.$error">
+                                                            <div class="fieldmsgerror" ng-message="required">
+                                                                Please enter job title.
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                   
+                                                        <label>*Date & Time (Start):  </label>
+                                                        <div class='datetimediv'>
+                                                            <div class="rt-inputs" ng-controller="DatepickerController">
+                                                                <p class="input-group">
+                                                                    <input name="jobStartDateTime" type="date" ng-click="open($event)" class="form-control"
+                                                                           uib-datepicker-popup="{{format}}"  is-open="status.opened"
+                                                                           min-date="minDate" max-date="maxDate" datepicker-options="dateOptions"
+                                                                           date-disabled="disabled(date, mode)" ng-required="true"
+                                                                           close-text="Close" readonly="true"
+                                                                           ng-model="job.jobStartDateTime" />
+                                                                    <span class="input-group-btn">
+                                                                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class=" glyphicon glyphicon-calendar"></i></button>
+                                                                    </span>
+                                                                </p> 
+                                                                <div ng-show="jobPostForm.jobStartDateTime.$dirty || jobPostForm.$submitted" ng-messages="jobPostForm.jobStartDateTime.$error">
+                                                                    <div class="fieldmsgerror" ng-message="required">
+                                                                        Please select start date.
+                                                                    </div> 
+                                                                </div>
+                                                            </div>
+                                                        
+                                                            <div ng-controller="TimepickerController">
+                                                                <uib-timepicker ng-model="job.startTime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>	
+                                                            </div>
+                                                            </div>
+                                                </li>
+                                                <li>
+                                                   
+                                                        <label>*Date & Time (End) :  </label>
+                                                       <div class='datetimediv'>
+                                                            <div class="rt-inputs" ng-controller="DatepickerController">
+                                                                <p class="input-group">
+                                                                    <input name="jobStartEndTime" type="date" ng-click="open($event)" class="form-control" uib-datepicker-popup="{{format}}"
+                                                                           is-open="status.opened" min-date="minDate" max-date="maxDate"
+                                                                           datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
+                                                                           ng-required="true" close-text="Close" readonly="true"
+                                                                           ng-model="job.jobStartEndTime" />
+                                                                    <span class="input-group-btn">
+                                                                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                                    </span>
+                                                                </p>
+                                                                <div class="fieldmsgerror" ng-show="jobPostForm.jobStartEndTime.$dirty || jobPostForm.$submitted" ng-messages="jobPostForm.jobStartEndTime.$error">
+                                                                    <div ng-message="required">
+                                                                        Please select end date.
+                                                                    </div>
+                                                                    <div ng-show="endTimeStamp < startTimeStamp">
+                                                                        {{dateError}}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                       
+                                                   
+                                                    <div ng-controller="TimepickerController">
+                                                        <input name="endTime" uib-timepicker ng-model="job.endtime" ng-change="changed()"
+                                                               hour-step="hstep" minute-step="mstep" show-meridian="ismeridian">
+                                                    </div>
+                                                    <div class="fieldmsgerror" ng-show="jobPostForm.endTime.$dirty || jobPostForm.$submitted" ng-messages="jobPostForm.endTime.$error">
+                                                        <div ng-show="eTime < sTime">
+                                                            {{timeError}}
+                                                        </div>
+                                                    </div> 
+                                                       </div>
+                                                </li>
+                                                <li>
+                                                    <label> *Job Description :  </label>
+                                                    <div class="rt-inputs">
+                                                        <textarea ng-model="job.jobDescription" name="jobDescription" required> </textarea>
+                                                        <div ng-show="jobPostForm.jobDescription.$dirty || jobPostForm.$submitted" ng-messages="jobPostForm.jobDescription.$error">
+                                                            <div ng-message="required">
+                                                                Please enter job description.
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <label>*Budget($): </label>
+                                                    <div class="rt-inputs" >
+                                                        <input type="text" ng-model="job.jobBudget" name="jobBudget" required>
+                                                        <div ng-show="jobPostForm.jobBudget.$dirty || jobPostForm.$submitted" ng-messages="jobPostForm.jobBudget.$error">
+                                                            <div class="fieldmsgerror" ng-message="required">
+                                                                Please enter job budget.
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <label> &nbsp;  </label>
+                                                    <div class="rt-inputs">
+                                                        <input type="submit" class="yellow_btn" value="Post Job" ng-click="jobPostForm.$valid && postJob()">
+                                                        <input type="submit" class="yellow_btn" value="Cancel" ng-click="cancel()">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <span us-spinner="{radius:30, width:8, length: 16, scale:0.50}"></span>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Ends Featured Section -->

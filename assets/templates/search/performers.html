@@ -1,0 +1,308 @@
+<!-- Starts Featured Section -->
+<div class="featured-section register-all-less">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="profilepage-lt">
+                    <div class="advancedsearch">
+                        <h3>Advance Search </h3>
+                        <div class="keyworddiv">
+                            <input type="text" placeholder="keyword" ng-model="searchData.keyword">
+                            <a href="javascript:void(0)" ng-click="loadPerformers('new')" class="search_icon"></a>
+                        </div>
+                        <div class="keyworddiv locationall">
+                            <a href="javascript:void(0)" id="location-click" ng-click="slideToggle()"> Location</a>
+                        </div>
+
+                        <!--Location Div Content Starts-->
+                        <div class="location-whole">
+                            <h3> <span>Location</span>   <b>Au</b></h3>
+
+                            <!--Angular bootstrap tabs Starts-->
+                            <div>
+                                <uib-tabset>
+                                    <uib-tab heading="NSW">
+                                        <div class="location-tab-prtclr">
+                                            <ul>
+                                                <li>
+                                                    <input type="checkbox"> <label>city 1</label>
+                                                </li>
+                                                <li>
+                                                    <p><input type="checkbox"> <label>city 1 location 1</label></p>
+                                                    <p><input type="checkbox"> <label>city 1 location 2</label></p>
+                                                    <p><input type="checkbox"> <label>city 1 location 3</label></p>
+                                                    <p><input type="checkbox"> <label>city 1 location 4</label></p>
+                                                    <p><input type="checkbox"> <label>city 1 location 5</label></p>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox"> <label>city 2</label>
+                                                </li>
+                                                <li>
+                                                    <p><input type="checkbox"> <label>city 2 location 1</label></p>
+                                                    <p><input type="checkbox"> <label>city 2 location 2</label></p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </uib-tab>
+                                    <uib-tab ng-repeat="tab in tabs" heading="VIC" active="tab.active" disable="tab.disabled">
+                                        <div class="location-tab-prtclr">
+                                            <ul>
+                                                <li>
+                                                    <input type="checkbox"> <label>city 1</label>
+                                                </li>
+                                                <li>
+                                                    <p><input type="checkbox"> <label>city 1 location 1</label></p>
+                                                    <p><input type="checkbox"> <label>city 1 location 2</label></p>
+                                                    <p><input type="checkbox"> <label>city 1 location 3</label></p>
+                                                    <p><input type="checkbox"> <label>city 1 location 4</label></p>
+                                                    <p><input type="checkbox"> <label>city 1 location 5</label></p>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox"> <label>city 2</label>
+                                                </li>
+                                                <li>
+                                                    <p><input type="checkbox"> <label>city 2 location 1</label></p>
+                                                    <p><input type="checkbox"> <label>city 2 location 2</label></p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </uib-tab>
+                                    <uib-tab ng-repeat="tab in tabs" heading="QLD" >
+                                        <div class="location-tab-prtclr">
+                                            <ul>
+                                                <li>
+                                                    <input type="checkbox"> <label>city 1</label>
+                                                </li>
+                                                <li>
+                                                    <p><input type="checkbox"> <label>city 1 location 1</label></p>
+                                                    <p><input type="checkbox"> <label>city 1 location 2</label></p>
+                                                    <p><input type="checkbox"> <label>city 1 location 3</label></p>
+                                                    <p><input type="checkbox"> <label>city 1 location 4</label></p>
+                                                    <p><input type="checkbox"> <label>city 1 location 5</label></p>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox"> <label>city 2</label>
+                                                </li>
+                                                <li>
+                                                    <p><input type="checkbox"> <label>city 2 location 1</label></p>
+                                                    <p><input type="checkbox"> <label>city 2 location 2</label></p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </uib-tab>
+                                    <uib-tab ng-repeat="tab in tabs" heading="WA" >
+                                        <div class="location-tab-prtclr">
+                                            <ul>
+                                                <li>
+                                                    <input type="checkbox"> <label>city 1</label>
+                                                </li>
+                                                <li>
+                                                    <p><input type="checkbox"> <label>city 1 location 1</label></p>
+                                                    <p><input type="checkbox"> <label>city 1 location 2</label></p>
+                                                    <p><input type="checkbox"> <label>city 1 location 3</label></p>
+                                                    <p><input type="checkbox"> <label>city 1 location 4</label></p>
+                                                    <p><input type="checkbox"> <label>city 1 location 5</label></p>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox"> <label>city 2</label>
+                                                </li>
+                                                <li>
+                                                    <p><input type="checkbox"> <label>city 2 location 1</label></p>
+                                                    <p><input type="checkbox"> <label>city 2 location 2</label></p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </uib-tab>
+                                </uib-tabset>
+                                <!--Angular bootstrap tabs Ends --> 
+
+                                <div class="cbtmpart-tbcntnt">
+                                    <p><input type="checkbox"> <label>All Australia</label></p>
+                                    <a href="javascript:void(0)" ng-click="slideToggle()" class="yellow_btn">DONE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Location Div Content Ends-->
+
+                    </div>
+
+                    <div class="filterbyprice">
+                        <h3>Filter by price</h3>
+                        <p>&nbsp;</p>
+                        <rzslider
+                            rz-slider-model="slider_translate.minValue"
+                            rz-slider-high="slider_translate.maxValue"
+                            rz-slider-options="slider_translate.options"
+                            >
+                        </rzslider>
+                    </div>
+                    <p>&nbsp;</p>
+
+                    <div class="multiplechckbxs" ng-if="categoryData.length">
+                        <h3>Filter by category</h3>
+                        <div class="multiplechckbxs-container">
+
+                            <div ng-repeat="eachCategory in categoryData">    
+                                <p> <input ng-model="searchData.Categories[eachCategory.id]" name="parentcat" ng-click="loadPerformers('new',eachCategory.id)" type="checkbox">{{ eachCategory.categoryTitle}}</p>
+                                <ul ng-if="eachCategory.subCategories.length">
+                                    <li ng-repeat="eachsubcat in eachCategory.subCategories"><p> <input ng-model="searchData.Categories[eachsubcat.id]" ng-click="loadPerformers('new')" name="catchild" type="checkbox">{{ eachsubcat.categoryTitle}}</p></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="multiplechckbxs ratingslt">
+                        <h3>Filter by rating</h3>
+                        <div class="multiplechckbxs-container">
+                            <ul>
+                                <li><p> <input type="checkbox" ng-model="searchData.Ratings['5']" ng-click="loadPerformers('new')"> <img src="images/frontend/starr.png"><img src="images/frontend/starr.png"><img src="images/frontend/starr.png"><img src="images/frontend/starr.png"><img src="images/frontend/starr.png"></p></li>
+                                <li><p> <input type="checkbox" ng-model="searchData.Ratings['4']" ng-click="loadPerformers('new')"> <img src="images/frontend/starr.png"><img src="images/frontend/starr.png"><img src="images/frontend/starr.png"><img src="images/frontend/starr.png"></p></li>
+                                <li><p> <input type="checkbox" ng-model="searchData.Ratings['3']" ng-click="loadPerformers('new')"> <img src="images/frontend/starr.png"><img src="images/frontend/starr.png"><img src="images/frontend/starr.png"></p></li>
+                                <li><p> <input type="checkbox" ng-model="searchData.Ratings['2']" ng-click="loadPerformers('new')"> <img src="images/frontend/starr.png"><img src="images/frontend/starr.png"></p></li>
+                                <li><p> <input type="checkbox" ng-model="searchData.Ratings['1']" ng-click="loadPerformers('new')"> <img src="images/frontend/starr.png"></p></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--div class="filterbyprice brwsecat">
+                      <h3>Browse By Catagories</h3>
+          
+              
+                        <uib-accordion close-others="oneAtATime">
+                          <uib-accordion-group heading="{{eachCategory.categoryTitle}}" ng-repeat="eachCategory in categoryData">
+                            <ul>
+                              <li ng-repeat="eachsubcat in eachCategory.subCategories">
+                                <a href="#">{{eachsubcat.categoryTitle}}</a>
+                              </li>
+                            </ul>
+                          </uib-accordion-group>
+                        <uib-accordion>
+              
+          
+                    </div-->
+
+                </div>
+                <div class="advertsmnntt">
+                    <img src="images/frontend/advertisement.jpg">
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8" infinite-scroll="loadPerformers()" infinite-scroll-disabled="!enabled" infinite-scroll-distance="1">
+                <div class="profilepage-rt">
+
+
+                    <div ng-if="performersData.length > 0" class="profiletop profletp-advncedsrch"  ng-repeat="eachperformer in performersData">
+                        <div class="row">
+                            <div class="col-lg-9 col-md-9">
+                                <div class="profiledp">
+                                    <a href="#/performer/profile/{{eachperformer.id}}?lnkaction=hire"><img  ng-src="{{eachperformer.profilePhoto}}"></a>
+                                </div>
+                                <div class="profiledp-info">
+                                    <h3><a href="#/performer/profile/{{eachperformer.id}}?lnkaction=hire">{{eachperformer.firstName}}</a> <span ng-if="eachperformer.companyId.companyName" class="companynamelabel">(<a popover-template="myPopover.templateUrl" popover-placement="left" popover-is-open="myPopover.isOpen" ng-click="myPopover.open()">{{eachperformer.companyId.companyName}}</a>)</span></h3>
+                                    <h4>
+                                        {{eachperformer.displayName}}
+                                    </h4>
+                                    <p class="location">{{eachperformer.address}}</p>
+                                    <p class="memebershp">Since : {{eachperformer.createdAt| date:'MM-dd-yyyy'}}</p>
+                                    <p ng-if="eachperformer.workPrice" class="bloggg">Price  : {{eachperformer.workPrice| currency:"$"}} ({{eachperformer.pricingTerm}})</p>
+                                    <p class="ratinggg" ng-if="eachperformer.grossRating > 0"> <span>Rating</span> 
+                                        <img ng-if="eachperformer.grossRating > 0" src="images/frontend/starr.png"> 
+                                        <img ng-if="eachperformer.grossRating > 1" src="images/frontend/starr.png"> 
+                                        <img ng-if="eachperformer.grossRating > 2" src="images/frontend/starr.png">
+                                        <img ng-if="eachperformer.grossRating > 3" src="images/frontend/starr.png">
+                                        <img ng-if="eachperformer.grossRating > 4" src="images/frontend/starr.png">
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3">
+                                <div class="hire-chat">
+                                    <a ng-if="userRole == 'Customer'" href="#/performer/profile/{{eachperformer.id}}?lnkaction=hire" class="hirebtn-cmn">HIRE</a>
+                                    <!--a ng-if="userRole == 'Customer' && eachperformer.chatAvail=='1'" href="#/performer/profile/{{eachperformer.id}}?lnkaction=chat"  class="hirebtn-cmn">Chat</a-->
+                                    <a ng-if="userRole != 'Customer'" href="#/performer/profile/{{eachperformer.id}}"  class="hirebtn-cmn">View profile / Hire</a>
+                                    <blockquote ng-if="eachperformer.feature_guarantee"> <img src="images/frontend/advncedserch.png"> </blockquote>
+                                </div>
+                            </div>
+                        </div>
+
+                       <!-- Popover content start -->
+                        <script type="text/ng-template" id="myPopoverTemplate.html">
+								
+                                <button ng-click="myPopover.close()" class="close" type="button">&times;</button>
+								<div class="dj-pp-dtl">
+                                  <div class="dj-pp-dtl">
+                                          <div class="row">
+                                            <div class="col-xs-4">
+                                                <a class="dp-modl" href="java-script:void(0);"><img  ng-src="{{eachperformer.companyId.profilePhoto}}"></a>
+                                        
+                                                <!--p class="ratinggg"> <img src="images/frontend/starr.png" title=""> <img src="images/frontend/starr.png" title=""> <img src="images/frontend/starr.png" title=""><img src="images/frontend/starr.png" title=""> <img src="images/frontend/starr.png"></p-->
+                                            </div>
+                                            <div class="col-xs-8 no-pdng-lft">
+                                                <h3>{{eachperformer.companyId.companyName}}</h3>
+                                                <p>{{eachperformer.companyId.address}}</p>
+                                                <p class="txt-dull">Since : {{eachperformer.companyId.createdAt| date:'MM-dd-yyyy'}}</p>
+                                       
+                                            </div>
+                                        </div>
+                                        <!--h4> Reviews</h4>
+                                        <div class="rw-wrp-mn">
+                                            <div class="rw-rpt">
+                                                <div class="rw-dp">
+                                                    <img src="images/frontend/girl.png" />
+                                                </div>
+                                                <div class="rw-dtl">
+                                                    <h5>Christopher Karmer</h5>
+                                                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
+                                                </div>
+                                            </div>
+                                            <div class="rw-rpt">
+                                                <div class="rw-dp">
+                                                    <img src="images/frontend/girl.png" />
+                                                </div>
+                                                <div class="rw-dtl">
+                                                    <h5>Christopher Karmer</h5>
+                                                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
+                                                </div>
+                                            </div>
+                                            <div class="rw-rpt">
+                                                <div class="rw-dp">
+                                                    <img src="images/frontend/girl.png" />
+                                                </div>
+                                                <div class="rw-dtl">
+                                                    <h5>Christopher Karmer</h5>
+                                                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
+                                                </div>
+                                            </div>
+                                        </div-->
+                                    </div>
+    					</script>
+   						<!-- Popover content end -->
+
+
+                    </div>
+                    <span us-spinner="{radius:30, width:8, length: 16, scale:0.50}"></span>
+                    <div ng-if="performersData.length <= 0" class="profiletop profletp-advncedsrch txtaligncenter">
+                        No records found<a href="#/search/performer" ng-if="searchData.barKeyword || searchData.barCategory"><b>  Show all</b></a>
+                    </div>
+
+                    <!--div class="loadmore">
+                      <a class="laodmorelink" href="#">Load more</a>
+                    </div -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="performerslider">
+                <ul class="bxslider">
+                    <li><img src="images/frontend/performer1.jpg" /></li>
+                    <li><img src="images/frontend/performer2.jpg" /></li>
+                    <li><img src="images/frontend/performer3.jpg" /></li>
+                    <li><img src="images/frontend/performer4.jpg" /></li>
+                    <li><img src="images/frontend/performer1.jpg" /></li>
+                    <li><img src="images/frontend/performer2.jpg" /></li>
+                    <li><img src="images/frontend/performer3.jpg" /></li>
+                    <li><img src="images/frontend/performer4.jpg" /></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Ends Featured Section -->

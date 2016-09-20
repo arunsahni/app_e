@@ -1,0 +1,76 @@
+<div class="featured-section register-all-less">
+  <div class="container">
+    <div class="register-box">
+        <div class="login-popup-form signup-popup-form">
+           <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert}}</uib-alert>
+            <form name="registerForm" class="form-signin" novalidate>
+             <!--div class="radio-optns">
+                 <p><input type="radio" ng-model="user.iscompany" name="user" value="company" ng-click="setFlag()"> 
+
+                <span>Company</span></p>
+                <p><input type="radio"  ng-model="user.iscompany" name="user" value="individual" ng-click="setFlag()"> 
+                <span>Individual</span></p>
+              </div-->
+              <div ng-if="user.iscompany" >
+              <input type="text" placeholder="Company name" name="companyName" ng-model="user.companyName" >
+              </div>
+
+              <input type="text" placeholder="First Name" name="managerFirstName" ng-model="user.firstName" required>
+              <div ng-show="registerForm.managerFirstName.$dirty || registerForm.$submitted" ng-messages="registerForm.managerFirstName.$error">
+               <div class="fieldmsgerror" ng-message="required">
+                Please enter first name
+               </div> 
+              </div>
+
+               <input type="text" placeholder="Last Name" name="managerLastName" ng-model="user.lastName">
+               
+              
+               <input type="email" placeholder="Email" name="email" ng-model="user.email" required>
+                <div ng-show="registerForm.email.$dirty || registerForm.$submitted" ng-messages="registerForm.email.$error">
+                  <div class="fieldmsgerror"  ng-message="required">
+                    Please enter a valid email address
+                  </div>
+                   <div class="fieldmsgerror"  ng-message="email">
+                    That is not a well formed email address
+                   </div>
+                </div>
+
+               <input type="password" placeholder="password" name="password" ng-model="user.password" required>
+                 <div ng-show="registerForm.password.$dirty || registerForm.$submitted" ng-messages="registerForm.password.$error">
+                   <div class="fieldmsgerror"  ng-message="required">
+                      Please provide a password
+                   </div>
+                  </div>
+
+               <input type="password" class="form-control" placeholder="confirm password" name="confirmpassword" ng-model="user.confirmPassword" required>
+                <div ng-show="registerForm.confirmpassword.$dirty || registerForm.$submitted" ng-messages="registerForm.confirmpassword.$error">
+                  <div class="fieldmsgerror"  ng-message="required">
+                   Please enter confirm password
+                  </div>
+                 </div>
+
+              <!--div class="radio-optns" ng-show="flag">
+                <p><input type="radio"   name="role"  value="Performer"  ng-model="user.role" > <span>I am a Member
+                </span></p>
+                <p><input type="radio" name="role" value="Customer" ng-model="user.role" > 
+                <span>I am a user</span></p>
+              </div-->
+              
+              <div class="terms-cndtns">
+                <!--input type="checkbox"> <span>Terms of Use and Privacy Policy</span-->
+              </div>
+                <input type="submit" value="Register" class="login-submit" ng-disabled="!canMoveForward"
+                ng-click="registerForm.$valid && register()" >
+                <span us-spinner="{radius:30, width:8, length: 16, scale:0.50}"></span>
+                <a ng-if="pid" class="forg-paswrd" href="#/login?pid={{pid}}">Already have account?</a>
+                <a ng-if="!pid" class="forg-paswrd" href="#/login">Already have account?</a>
+                <div class="clear"></div>
+                <a class="forg-paswrd" href="#/regType">Back to selection</a>
+            </form>
+            <div class="clear"></div>
+          </div>
+          <h3 class="register-title">Account Info</h3>
+
+    </div>
+  </div>
+</div>

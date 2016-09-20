@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Transaction Listing</h3>
+                <!--<div class="box-tools">
+                    <div class="input-group" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Search" ng-model="text">
+                        <div class="input-group-btn">
+                            <button class="btn btn-sm btn-default" type="submit" ng-click="search(text)"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div> -->
+            </div><!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tr>
+                        <th>
+                            <!-- <a href="javascript:void(0);" ng-click="sort('jobCategory')">
+                                <span class ="fa fa-caret-down"></span>
+                                <span class ="fa fa-caret-up"></span> -->
+                              Job Title
+                            </a>
+                        </th>
+                        <th>
+                            <!-- <a href="javascript:void(0);" ng-click="sort('jobTitle')">
+                                <span class ="fa fa-caret-down"></span>
+                                <span class ="fa fa-caret-up"></span> -->
+                              Job Performed By
+                            <!-- </a> -->
+                        </th>
+                        <!-- <th><a href="javascript:void(0);" ng-click="sort('jobDescription')">
+                            <span class ="fa fa-caret-down"></span>
+                            <span class ="fa fa-caret-up"></span>
+                            Job Description
+                        </a></th> -->
+                        <th>
+                            Job Host
+                        </th>
+                        <!-- <th>
+                            Job Status
+                        </th> -->
+                        <th>
+                            Amount
+                        </th>
+                        <th> Payment Status</th>
+                         <th>
+                            <a href="javascript:void(0);">
+                                Action
+                            </a>
+                        </th>
+                    </tr>
+                    <tr ng-repeat="payment in transactionData">
+
+                        <td >{{payment.jobId.jobTitle}}</td>
+                        <td ng-if="booking.performerId.companyName == null">{{payment.companyId.firstName +" "+ payment.companyId.lastName}}</td>
+                        <td ng-if="booking.performerId.companyName != null"> {{payment.companyId.companyName}}</td>
+                        <!-- <td>{{job.jobDescription}}</td> -->
+                        <td>{{payment.hostId.firstName}}</td>
+                        <td>{{payment.amount}}</td>
+                        <td> {{payment.paymentStatus}}</td>
+                        <td>
+                            <a href="javascript:void(0);">
+                            <i title="View Details" class="fa fa-fw fa-file-o" ng-click="details(payment.id)"></i>
+                            <!-- <a href="javascript:void(0);">
+                            <i title="Delete" class="fa fa-fw fa-remove" ng-click="remove(payment.id)"></i> -->
+                          </a>
+                        </td>
+                    </tr>
+
+                </table>
+            </div><!-- /.box-body -->
+            <div class="box-footer clearfix">
+                <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" items-per-page="itemsPerPage" ng-change="pageChanged()"></uib-pagination>
+                <!-- <ul class="pagination pagination-sm no-margin pull-right">
+                    <li>Page: {{bigCurrentPage}} / {{numPages}}</li>
+                </ul> -->
+            </div>
+        </div><!-- /.box -->
+    </div>
+</div>

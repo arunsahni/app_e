@@ -1,0 +1,89 @@
+<div class="featured-section register-all-medium">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="postjobs">
+                    <h3>
+                       <b> <span>My performers</span></b>
+                        <a href="#/company/AddPerformer" class="yellow_btn" style="float:right">Add New Performer</a>
+                    </h3>
+                  
+                    <div class="filterabovetble">
+                        
+                        <div class="filterabovetble-rt ">
+                         <ul class="slct-sh-ps clearbtnli">
+                           
+                         <li><input type="text" placeholder="Search" ng-model="text"></li>
+                         <li><input type="submit" value="Search" class="searchblck" ng-click="search(text)"></li>
+                         <li><button class="searchblck" ng-click="clearData()">Clear</button></li>
+                         </ul>
+                           <!--  <p>Search by Job Title</p> -->
+                        </div>
+                    </div>
+                    <div class="table-common">
+                    <table>
+                        <thead>
+                           <!--  <th> <input type="checkbox" ng-model="selectedAll" onclick = "toggle(this)" ng-click= "checkAll()"  /></th> -->
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th><a href="javascript:void(0);" ng-click= "sort('email')">
+                            <span class ="fa fa-caret-down" ng-show="sortDir == 'desc' && sortBy !='id'"></span>
+                                <span class ="fa fa-caret-up" ng-show="sortDir == 'asc'"></span>Email</a></th>
+                            <th>Phone</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </thead>
+                        <form>
+                        <tbody>
+                            <tr ng-repeat="performer in performerData">
+                                <!-- <td class="chkbox-col"> <input type="checkbox" name="foo" ng-model="performer.Selected" ng-true-value='1' ng-false-value='0'> </td> -->
+                                <td class="jobtitle-col">{{performer.firstName}}</td>
+                                <td class="jobdate-col">{{performer.lastName}}</td>
+                                <td class="proposals-col">{{performer.email}}</td>
+                                <td class="proposals-col">{{performer.phoneNumber}}</td>
+                                <td class="proposals-col"><button ng-click="changeStatus(performer.id,performer.status)" ng-class="{'btn-success': performer.status == 'active', 'btn-danger': performer.status == 'deactive'}" class="btn">{{performer.status}}</button></td>
+                                 <!-- <td class="proposals-col"><button class="btn btn-danger">{{performer.status}}</button></td> -->
+                                <td class="actions">
+                                    <a > <img src="images/frontend/details-icon.png" width="20" ng-click="setPerformer(performer.id,performer.firstName)"> </a>
+                                    <a > <img src="images/frontend/edit-icon.png" width="20" ng-click="edit(performer.id)"> </a>
+                                    <a > <img src="images/frontend/delete-icon.png" width="20" ng-click="deletePerformer(performer.id)"> </a>
+                                </td>
+                            </tr>    
+                            <tr ng-if="performerData.length <=0" style="text-align:center">
+                                <td colspan="7">No record found</td>
+                            </tr>                                   
+                        </tbody>
+                    </table>
+                    </div>
+                   <!--  <div ng-show="performerData.length >0" class="deleteslcted" >
+                        <a href="" class="searchblck" ng-click="deleteMultiple(performerData)">Delete Selected</a>
+                    </div> -->
+                    </form>
+                </div>
+                  <div ng-show="performerData.length >0" class="box-footer clearfix">
+                <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" items-per-page="itemsPerPage" ng-change="pageChanged()"></uib-pagination>
+                <ul class="pagination pagination-sm no-margin pull-right">
+                    <!-- <li>Page: {{bigCurrentPage}} / {{numPages}}</li> -->
+                </ul>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Ends Featured Section -->
+<script>
+    function toggle(source) {
+  checkboxes = document.getElementsByName('foo');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    
+    checkboxes[i].checked = source.checked;
+  }
+  //$(".chkbox-col input").attr('checked', "checked");
+  //$(".chkbox-col input").addClass('ng-touched');*/
+
+}
+/*ng-valid ng-dirty ng-valid-parse ng-touched
+ng-pristine ng-untouched ng-valid
+ng-pristine ng-untouched*/
+</script>
